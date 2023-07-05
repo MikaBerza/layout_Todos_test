@@ -1,0 +1,10 @@
+.heading {
+  margin: auto;
+  text-align: center;
+}
+
+.heading__title {
+  margin: 0;
+  font-size: 100px;
+  color: var(--tomato-color);
+}

@@ -1,7 +1,8 @@
-.check1 {
-  color: red;
-}
+@import url('./fonts.css');
+@import url('./normalizeStyle.css');
 
-.check2 {
-  color: blue;
-}
+@import url('./commonSource.css');
+@import url('./heading.css');
+@import url('./mainContent.css');
+
+/* @import url('./media.css'); */

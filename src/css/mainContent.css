@@ -1,0 +1,22 @@
+.mainContent {
+  display: flex;
+  flex-wrap: wrap;
+
+  margin: auto;
+  width: 1120px;
+  height: auto;
+  border: 4px solid var(--darkAzure-color);
+  border-radius: 20px;
+}
+
+.counters {
+  display: flex;
+  flex-direction: column;
+}
+
+.control,
+.enteringNotes,
+.outputNotes {
+  width: 560px;
+  align-self: stretch;
+}

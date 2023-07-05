@@ -8,8 +8,68 @@
 </head>
 
 <body>
-  <h1 class="check1">Checking the work1</h1>
-  <h2>Checking the work2</h2>
+  <div class="wrapper">
+    <header class="heading">
+      <h1 class="heading__title">Todos</h1>
+    </header>
+
+    <main class="mainContent">
+      
+      <section class="control">
+        <!-- Поиск -->
+        <div class="search">
+          <input class="search__item" type="search" placeholder="&#128269; поиск записей">
+        </div>
+
+        <!-- Счетчики -->
+        <div class="counters">
+          <span class="counters__allTasks">все - 0</span>
+          <span class="counters__completedTasks">выполненные - 0</span>
+          <span class="counters__unfulfilledTasks">невыполненные - 0</span>
+          <meter class="counters__indicator" value="0" min="0" max="0" low="0" high="0"></meter>
+        </div>
+
+        <!-- фильтрация -->
+        <div class="filtering">
+          <span class="filtering__text">фильтрация</span>
+          <select class="filtering__select">
+            <option class="filtering__select-item" value="Все">Все</option>
+            <option class="filtering__select-item" value="Выполненные">Выполненные</option>
+            <option class="filtering__select-item" value="Невыполненные">Невыполненные</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- Ввод заметок -->
+      <section class="enteringNotes">
+        <div>
+          <textarea></textarea>
+        </div>
+        <div>
+          <button>Добавить</button>
+        </div>
+      </section>
+
+      <!-- вывод заметок -->
+      <section class="outputNotes">
+        <ul class="">
+          <li class="">
+            <div class="">
+              <span class="">текст</span>
+              <input class="" type="checkbox">
+            </div>
+            <div class="">
+              <span class="">22/12/22, 13:32</span>
+              <span class="">x</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer></footer>
+  </div>
+
 </body>
 
 </html>
