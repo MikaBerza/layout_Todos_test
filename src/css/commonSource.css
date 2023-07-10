@@ -1,20 +1,24 @@
 :root {
   --tomato-color: rgba(255, 99, 71, 0.5);
   --darkAzure-color: #0088cc;
+  --dimgray-color: #696969;
+  --lightGrey-color: #BCBCBC;
+  --lightGrey2-color: #f2f2f2;
+  --white-color: white;
+  --black-color: black;
+  --mapleGreen-color:#507D2A;
 }
+
+/* Отменяет маркеры для списка */
+ul {
+  list-style-type: none;
+}
+
 
 /* внешняя обертка */
 .wrapper {
   font-family: 'Roboto', 'Times New Roman', Times, serif;
   font-style: normal;
-}
-
-/* размер viewport */
-.vt-w1 {
-  width: 100%;
-}
-
-/* фоновый цвет */
-.bgc-1 {
-  background: var(--beige100-color);
+  font-size: 20px;
+  color: var(--dimgray-color);
 }
