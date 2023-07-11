@@ -1,17 +1,42 @@
 :root {
   --tomato-color: rgba(255, 99, 71, 0.5);
+  --tomato2-color: #CD5C5C;
   --darkAzure-color: #0088cc;
   --dimgray-color: #696969;
   --lightGrey-color: #BCBCBC;
   --lightGrey2-color: #f2f2f2;
   --white-color: white;
   --black-color: black;
-  --mapleGreen-color:#507D2A;
+  --mapleGreen-color: #507D2A;
+  --emeraldGreen-color: #287233;
+  --beige100-color: #F9F7F4;
+}
+
+/* выравняем элементы по центру экрана */
+html {
+  display: table;
+  margin: auto;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: table-cell;
+  vertical-align: middle;
+  background-color: var(#F9F7F4);
 }
 
 /* Отменяет маркеры для списка */
 ul {
   list-style-type: none;
+}
+
+/* Отменяет подчеркивание */
+a {
+  text-decoration: none;
 }
 
 
@@ -21,4 +46,10 @@ ul {
   font-style: normal;
   font-size: 20px;
   color: var(--dimgray-color);
+}
+
+/* размер viewport */
+.w1 {
+  max-width: 1120px;
+  margin: 10px auto 0px auto;
 }

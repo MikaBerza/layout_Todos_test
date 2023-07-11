@@ -4,5 +4,9 @@
 @import url('./commonSource.css');
 @import url('./heading.css');
 @import url('./mainContent.css');
+@import url('./control.css');
+@import url('./enteringNotes.css');
+@import url('./outputNotes.css');
+@import url('./footers.css');
 
-/* @import url('./media.css'); */
+@import url('./media.css');

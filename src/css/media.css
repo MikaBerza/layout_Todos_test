@@ -1,0 +1,54 @@
+/* ___________@media-директива_____________________________________ */
+/*от0px-до1023px___________________________________________________*/
+@media (max-width: 1023px) {
+
+  .heading__title {
+    font-size: 60px;
+  }
+
+  .mainContent {
+    background-size: cover;
+  }
+
+  .control,
+  .enteringNotes,
+  .outputNotes {
+    width: 90%;
+    margin: auto;
+  }
+
+  .enteringNotes {
+    margin-top: 100px;
+  }
+
+  .enteringNotes__textarea-item {
+    height: 100px;
+  }
+
+  .outputNotes {
+    margin-top: 10px;
+  }
+
+  .outputNotes__list {
+    max-height: 250px;
+  }
+
+  .footers__linkContainer {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
+  .footers__link {
+    justify-content: center;
+  }
+
+  .footers__link-text {
+    display: none;
+  }
+
+  .footers__link-socialNetwork-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

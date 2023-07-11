@@ -1,8 +1,6 @@
 .mainContent {
-  max-width: 1120px;
   height: auto;
-  margin: auto;
-  padding: 10px;
+  padding: 20px 10px;
 
   display: flex;
   justify-content: space-between;
@@ -10,7 +8,7 @@
 
   background-image: url('../assets/images/1.51bird.svg');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 170%;
   opacity: 0.8;
 
   border: 4px solid var(--darkAzure-color);
@@ -20,114 +18,44 @@
 .control,
 .enteringNotes,
 .outputNotes {
-  width: 520px;
+  width: 478px;
   align-self: stretch;
-  padding: 10px;
+  padding: 0px 10px;
 }
 
-.search__item,
-.filtering__select,
-.enteringNotes__textarea-item {
-  box-sizing: border-box;
-  padding: 6px;
+/* полоса прокрутки */
+.enteringNotes__textarea-item::-webkit-scrollbar,
+.outputNotes__list::-webkit-scrollbar {
+  /* ширина scrollbar */
+  width: 12px;
 }
 
-.counters,
-.counters__completedTasks,
-.counters__unfulfilledTasks,
-.filtering,
-.filtering__select,
-.enteringNotes__buttons {
-  margin-top: 10px;
-}
-
-/* _____control */
-/* ___search */
-.search__item {
-  width: 100%;
-  height: auto;
+/* полоса прокрутки (трек) */
+.enteringNotes__textarea-item::-webkit-scrollbar-track,
+.outputNotes__list::-webkit-scrollbar-track {
+  /* цвет дорожки */
+  border: 1px solid var(--lightGrey2-color);
+  border-radius: 8px;
   background-color: var(--lightGrey2-color);
-  border: 1px solid var(--lightGrey2-color);
-  border-radius: 8px;
-  /* убираем жирный бордер при клике */
-  outline: none;
 }
 
-/* ___counters */
-.counters {
-  display: flex;
-  flex-direction: column;
-}
-
-.counters__indicator {
-  width: 100%;
-  height: 40px;
-}
-
-/* ___filtering */
-.filtering {
-  display: flex;
-  flex-direction: column;
-}
-
-.filtering__select {
-  color: var(--dimgray-color);
-  background-color: var(--lightGrey2-color);
-  border: 1px solid var(--lightGrey2-color);
-  border-radius: 8px;
-  /* убираем жирный бордер при клике */
-  outline: none;
-}
-
-.filtering__select:hover {
-  cursor: pointer;
-}
-
-.filtering__select:active {
-  box-shadow: 0 0 10px var(--lightGrey2-color);
-  border: 1px solid var(--lightGrey2-color);
-}
-
-/* _____enteringNotes */
-.enteringNotes__textarea-item {
-  width: 100%;
-  background-color: var(--lightGrey2-color);
-  border: 1px solid var(--lightGrey2-color);
-  border-radius: 8px;
-  /* убираем жирный бордер при клике */
-  outline: none;
-  /* запрещаем растягивание */
-  resize: none;
-}
-
-.enteringNotes__buttons-item {
-  width: 100%;
-  padding: 10px;
-  border-radius: 8px;
+/* полоса прокрутки (ползунок) */
+.enteringNotes__textarea-item::-webkit-scrollbar-thumb,
+.outputNotes__list::-webkit-scrollbar-thumb {
   border: 1px solid var(--lightGrey-color);
   background-color: var(--lightGrey-color);
-  color: var(--black-color);
-  font-weight: 600;
-
-  transition:
-    border 0.3s ease,
-    background-color 0.3s ease,
-    color 0.3s ease,
-    font-weight 0.3s ease;
+  border-radius: 8px;
 }
 
-.enteringNotes__buttons-item:hover {
+.enteringNotes__textarea-item::-webkit-scrollbar-thumb:hover,
+.outputNotes__list::-webkit-scrollbar-thumb:hover {
   border: 1px solid var(--mapleGreen-color);
   background-color: var(--mapleGreen-color);
-  color: white;
-  font-weight: 700;
-  /*форма курсора мыши*/
   cursor: pointer;
 }
 
-.enteringNotes__buttons-item:active {
-  box-shadow: 0 0 10px var(--mapleGreen-color);
-  border: 1px solid var(--mapleGreen-color);
+.enteringNotes__textarea-item::-webkit-scrollbar-thumb:active,
+.outputNotes__list::-webkit-scrollbar-thumb:active {
+  border: 1px solid var(--emeraldGreen-color);
+  background-color: var(--emeraldGreen-color);
 }
-
-/* _____outputNotes */

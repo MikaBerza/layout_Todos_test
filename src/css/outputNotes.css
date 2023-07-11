@@ -1,0 +1,74 @@
+/* _____outputNotes */
+.outputNotes__list {
+  margin: 0;
+  padding: 0;
+  border-radius: 10px;
+  min-height: 0px;
+  max-height: 320px;
+  overflow: auto;
+}
+
+.outputNotes__list-item {
+  box-sizing: border-box;
+  padding: 6px;
+
+  margin: 0px;
+  margin-right: 10px;
+  background-color: var(--lightGrey2-color);
+  border: 1px solid var(--lightGrey2-color);
+  border-radius: 8px;
+
+  opacity: 0.8;
+}
+
+/* выбрать все элементы кроме первого */
+.outputNotes__list-item:not(:first-child) {
+  margin-top: 10px;
+}
+
+.outputNotes__list-item-block1,
+.outputNotes__list-item-block2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.outputNotes__list-item-block1-text {
+  /* заданная ширина блока */
+  max-width: 96%;
+  /*автоматический перенос текста, чтобы текс 
+    поместился в заданную ширину блока*/
+  word-wrap: break-word;
+  color: var(--black-color);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.outputNotes__list-item-block1-checkbox[type=checkbox] {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.outputNotes__list-item-block2-date {
+  display: flex;
+  justify-content: left;
+  margin-top: 10px;
+  color: var(--black-color);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.outputNotes__list-item-block2-close {
+  display: flex;
+  justify-content: right;
+  color: var(--black-color);
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.outputNotes__list-item-block2-close:hover {
+  color: var(--tomato-color);
+}
