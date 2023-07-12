@@ -20,13 +20,13 @@ html {
 
 html,
 body {
-  height: 100%;
+  height: 80%;
 }
 
 body {
   display: table-cell;
   vertical-align: middle;
-  background-color: var(#F9F7F4);
+  background-color: var(--beige100-color);
 }
 
 /* Отменяет маркеры для списка */
