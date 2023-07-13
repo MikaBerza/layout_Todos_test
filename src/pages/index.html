@@ -23,9 +23,11 @@
 
         <!-- Счетчики -->
         <div class="counters">
-          <span class="counters__allTasks">все - 0</span>
-          <span class="counters__completedTasks">выполненные - 0</span>
-          <span class="counters__unfulfilledTasks">невыполненные - 0</span>
+          <div class="counters__tasks">
+            <span class="counters__tasks-all">все-100</span>
+            <span class="counters__tasks-active">активен-100</span>
+            <span class="counters__tasks-completed">завершено-100</span>
+          </div>
           <meter class="counters__indicator" value="0" min="0" max="0" low="0" high="0"></meter>
         </div>
 
@@ -33,9 +35,9 @@
         <div class="filtering">
           <span class="filtering__text">фильтрация</span>
           <select class="filtering__select">
-            <option class="filtering__select-item" value="Все">Все</option>
-            <option class="filtering__select-item" value="Выполненные">Выполненные</option>
-            <option class="filtering__select-item" value="Невыполненные">Невыполненные</option>
+            <option class="filtering__select-item" value="все">все</option>
+            <option class="filtering__select-item" value="активен">активен</option>
+            <option class="filtering__select-item" value="завершено">завершено</option>
           </select>
         </div>
       </section>
@@ -43,7 +45,7 @@
       <!-- Ввод заметок -->
       <section class="enteringNotes">
         <div class="enteringNotes__textarea">
-          <textarea class="enteringNotes__textarea-item" rows="13"></textarea>
+          <textarea class="enteringNotes__textarea-item" rows="13" placeholder="Что нужно сделать?"></textarea>
         </div>
         <div class="enteringNotes__buttons">
           <button class="enteringNotes__buttons-item">Добавить</button>

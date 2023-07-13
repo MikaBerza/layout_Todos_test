@@ -1,6 +1,9 @@
 /* ___________@media-директива_____________________________________ */
 /*от0px-до1023px___________________________________________________*/
 @media (max-width: 1023px) {
+  .wrapper {
+    font-size: 16px;
+  }
 
   .heading__title {
     font-size: 60px;
@@ -13,7 +16,7 @@
   .control,
   .enteringNotes,
   .outputNotes {
-    width: 90%;
+    max-width: 600px;
     margin: auto;
   }
 

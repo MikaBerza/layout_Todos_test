@@ -13,6 +13,18 @@
   outline: none;
   /* запрещаем растягивание */
   resize: none;
+  transition: background-color 0.3s ease;
+}
+
+.enteringNotes__textarea-item::placeholder {
+  font-size: 20px;
+  font-style: oblique;
+  font-weight: 200;
+
+}
+
+.enteringNotes__textarea-item:hover {
+  background-color: var(--white-color);
 }
 
 .enteringNotes__buttons {
