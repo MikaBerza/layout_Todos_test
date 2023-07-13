@@ -12,20 +12,7 @@
   --beige100-color: #F9F7F4;
 }
 
-/* выравняем элементы по центру экрана */
-html {
-  display: table;
-  margin: auto;
-}
-
-html,
 body {
-  height: 80%;
-}
-
-body {
-  display: table-cell;
-  vertical-align: middle;
   background-color: var(--beige100-color);
 }
 
