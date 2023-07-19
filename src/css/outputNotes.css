@@ -33,6 +33,10 @@
   justify-content: space-between;
 }
 
+.completed {
+  text-decoration: line-through;
+}
+
 .outputNotes__list-item-block1-text {
   /* заданная ширина блока */
   max-width: 96%;
@@ -60,7 +64,7 @@
   font-weight: 600;
 }
 
-.outputNotes__list-item-block2-close {
+.outputNotes__list-item-block2-remove {
   display: flex;
   justify-content: right;
   color: var(--black-color);
@@ -69,6 +73,6 @@
   cursor: pointer;
 }
 
-.outputNotes__list-item-block2-close:hover {
+.outputNotes__list-item-block2-remove:hover {
   color: var(--tomato-color);
 }

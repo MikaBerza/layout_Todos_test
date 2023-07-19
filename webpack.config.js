@@ -8,6 +8,9 @@ module.exports = {
     index: './src/js/index.js',
     modules: './src/js/modules.js',
     enteringNotes: './src/js/enteringNotes.js',
+    control: './src/js/control.js',
+    outputNotes: './src/js/outputNotes.js',
+    app: './src/js/app.js',
   },
   output: {
     filename: '[name].js',
@@ -23,7 +26,14 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './src/pages/index.html',
-      chunks: ['index', 'modules', 'enteringNotes'],
+      chunks: [
+        'index',
+        'modules',
+        'enteringNotes',
+        'control',
+        'outputNotes',
+        'app',
+      ],
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
