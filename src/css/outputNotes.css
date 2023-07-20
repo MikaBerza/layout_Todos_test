@@ -21,6 +21,12 @@
   opacity: 0.8;
 }
 
+.outputNotes__list-item_edit {
+  opacity: 1;
+  background-color: var(--white-color);
+}
+
+
 /* выбрать все элементы кроме первого */
 .outputNotes__list-item:not(:first-child) {
   margin-top: 10px;
@@ -65,14 +71,15 @@
 }
 
 .outputNotes__list-item-block2-remove {
-  display: flex;
-  justify-content: right;
-  color: var(--black-color);
-  font-size: 18px;
-  font-weight: 600;
-  cursor: pointer;
+  display: none;
 }
 
-.outputNotes__list-item-block2-remove:hover {
+/* при наведении на элемент <li> меняем стиль для элемента <span> */
+.outputNotes__list-item:hover .outputNotes__list-item-block2-remove {
+  display: flex;
+  justify-content: right;
   color: var(--tomato-color);
+  font-size: 18px;
+  font-weight: 900;
+  cursor: pointer;
 }

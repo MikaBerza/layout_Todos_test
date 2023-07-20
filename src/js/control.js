@@ -75,7 +75,6 @@ export function calcActiveAndCompletedTasks() {
     tasksCompleted.textContent = 'завершено-0';
   }
 }
-calcActiveAndCompletedTasks();
 
 // ___функция для получения отфильтрованных элементов в списке задач
 export function getFilteredItems(textOfTheSelectedItem) {
