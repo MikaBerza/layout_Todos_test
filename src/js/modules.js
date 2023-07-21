@@ -80,6 +80,7 @@ export function createTaskListItems(date, remove, tick, note, id) {
 
   // добавляем атрибут для тега <input>
   inputElem1.setAttribute('type', 'checkbox');
+  // запишем условие
   if (tick === true) {
     // добавляем атрибут для тега <input> установленный флажок
     inputElem1.setAttribute('checked', tick);

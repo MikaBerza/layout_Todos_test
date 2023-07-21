@@ -1,5 +1,8 @@
 import { displayLocalStorageData } from './modules';
-import addTaskToTheList from './enteringNotes';
+import {
+  addTaskToTheList,
+  replaceTaskToTheListWhenEditing,
+} from './enteringNotes';
 
 import {
   changeCheckboxAndClassOfTaskListItem,
@@ -31,10 +34,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // событие click возникает каждый раз когда кликнули на элемент <button> левой кнопкой мыши
 buttonElem.addEventListener('click', () => {
-  // вызываем функцию для добавления задачи в список задач
-  addTaskToTheList();
-  // вызываем функцию для вычисления активных и завершенных задач
-  calcActiveAndCompletedTasks();
+  if (buttonElem.textContent === 'Добавить') {
+    // вызываем функцию для добавления задачи в список задач
+    addTaskToTheList();
+    // вызываем функцию для вычисления активных и завершенных задач
+    calcActiveAndCompletedTasks();
+  } else if (buttonElem.textContent === 'Редактировать') {
+    // вызываем функцию для замены задачи в списке задач при редактировании
+    replaceTaskToTheListWhenEditing();
+  }
 });
 
 // после срабатывания события "dblclick" по тексту задачи, переданные внутрь функции выполняется
@@ -46,6 +54,7 @@ document.addEventListener('dblclick', (event) => {
   if (clickedElement.classList.contains('outputNotes__list-item-block1-text')) {
     // если есть, то это нужным нам элемент и мы его запишем
     const taskTextElement = clickedElement;
+    // вызываем функцию для редактирования текста задачи
     editTheTaskText(taskTextElement);
   }
 });
@@ -90,6 +99,8 @@ document.addEventListener('click', (event) => {
 
 // событие input возникает каждый раз при вводе нового символа в <input> поисковую строку
 inpSearchElem.addEventListener('input', () => {
+  // устанавливаем отдельный пункт списка <option> c тестом 'все' в <select>
+  selectElem.value = selectElem.options[0].value;
   // текст поисковой строки переводим в верхний регистр
   const searchStringText = inpSearchElem.value.toUpperCase();
   // вызываем функцию для поиска элементов в списке задач

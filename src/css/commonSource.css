@@ -40,3 +40,13 @@ a {
   max-width: 1120px;
   margin: 10px auto 0px auto;
 }
+
+/* стиль чтобы отметить элемент как завершенный */
+.completed {
+  text-decoration: line-through;
+}
+
+/* для скрытия элемента */
+.dn {
+  display: none;
+}

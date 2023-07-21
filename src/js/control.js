@@ -17,7 +17,6 @@ export function searchForItemsInTheList(searchStringText) {
       // Если совпадение в строке найдено, показываем элемент
       if (item.note.toUpperCase().indexOf(searchStringText) > -1) {
         elem.style.display = '';
-
         // Если совпадение в строке НЕ найдено, НЕ показываем элемент
       } else {
         elem.style.display = 'none';

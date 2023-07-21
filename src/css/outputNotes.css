@@ -21,12 +21,6 @@
   opacity: 0.8;
 }
 
-.outputNotes__list-item_edit {
-  opacity: 1;
-  background-color: var(--white-color);
-}
-
-
 /* выбрать все элементы кроме первого */
 .outputNotes__list-item:not(:first-child) {
   margin-top: 10px;
@@ -37,10 +31,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.completed {
-  text-decoration: line-through;
 }
 
 .outputNotes__list-item-block1-text {
