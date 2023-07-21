@@ -29,6 +29,7 @@
 
 .enteringTask__buttons {
   margin-top: 10px;
+  display: flex;
 }
 
 .enteringTask__buttons-item {
@@ -59,4 +60,5 @@
 .enteringTask__buttons-item:active {
   border: 1px solid var(--emeraldGreen-color);
   background-color: var(--emeraldGreen-color);
+  color: var(--lightGrey-color);
 }

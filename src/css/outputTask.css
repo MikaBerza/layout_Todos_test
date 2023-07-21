@@ -1,4 +1,43 @@
 /* _____outputTask */
+.outputTask__buttons {
+  /* display: none; */
+  text-align: right;
+  padding: 6px;
+}
+
+.outputTask__buttons-item {
+  margin-right: 10px;
+  padding: 0;
+
+  width: 15px;
+  height: 15px;
+
+  background-image: url('../assets/images/icon_checkbox_b.png');
+  background-size: cover;
+
+  border: 1px solid var(--lightGrey-color);
+  border-radius: 3px;
+  background-color: var(--lightGrey-color);
+
+  transition:
+    border 0.3s ease,
+    background-color 0.3s ease
+}
+
+.outputTask__buttons-item:hover {
+  border: 1px solid var(--mapleGreen-color);
+  background-color: var(--mapleGreen-color);
+
+  background-image: url('../assets/images/icon_checkbox_w.png');
+  cursor: pointer;
+}
+
+.outputTask__buttons-item:active {
+  background-image: url('../assets/images/icon_checkbox_g.png');
+  border: 1px solid var(--emeraldGreen-color);
+  background-color: var(--emeraldGreen-color);
+}
+
 .outputTask__list {
   margin: 0;
   padding: 0;

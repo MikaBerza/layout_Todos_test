@@ -32,6 +32,10 @@
     margin-top: 10px;
   }
 
+  .outputTask__buttons-item {
+    margin-right: 22px;
+  }
+
   .outputTask__list {
     max-height: 250px;
   }
