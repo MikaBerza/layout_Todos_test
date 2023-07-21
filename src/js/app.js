@@ -6,6 +6,7 @@ import {
 
 import {
   changeCheckboxAndClassOfTaskListItem,
+  checkAndTakeOfAllCheckboxes,
   removeFromTheTaskList,
   editTheTaskText,
 } from './outputTask';
@@ -17,11 +18,13 @@ import {
 } from './control';
 
 // ___Считываем button для добавления задачи
-const buttonElem = document.querySelector('.enteringTask__buttons-item');
+const buttonAddElem = document.querySelector('.enteringTask__buttons-item');
 // ___Считываем input для поиска задач
 const inpSearchElem = document.querySelector('.search__item');
 // ___Считываем элемент select выбора активных и завершенных задач
 const selectElem = document.querySelector('.filtering__select');
+// ___Считываем button для установки и снятия всех флажков
+const buttonSetCheckboxes = document.querySelector('.outputTask__buttons-item');
 
 // После срабатывания события "DOMContentLoaded", переданные внутрь функции выполняется
 // Событие DOMContentLoaded происходит, когда браузер разобрал HTML-страницу и составил DOM-дерево
@@ -33,16 +36,27 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // событие click возникает каждый раз когда кликнули на элемент <button> левой кнопкой мыши
-buttonElem.addEventListener('click', () => {
-  if (buttonElem.textContent === 'Добавить') {
+buttonAddElem.addEventListener('click', () => {
+  if (buttonAddElem.textContent === 'Добавить') {
     // вызываем функцию для добавления задачи в список задач
     addTaskToTheList();
     // вызываем функцию для вычисления активных и завершенных задач
     calcActiveAndCompletedTasks();
-  } else if (buttonElem.textContent === 'Редактировать') {
+  } else if (buttonAddElem.textContent === 'Редактировать') {
     // вызываем функцию для замены задачи в списке задач при редактировании
     replaceTaskToTheListWhenEditing();
   }
+});
+
+// событие click возникает каждый раз когда кликнули на элемент <button> левой кнопкой мыши
+buttonSetCheckboxes.addEventListener('click', () => {
+  // получим список элементов документа, которые соответствуют указанной группе селекторов
+  const nodeListCheckElem = document.querySelectorAll('.outputTask__list-item-block1-checkbox');
+  const nodeListTaskTextElem = document.querySelectorAll('.outputTask__list-item-block1-text');
+  // вызываем функцию для установки или снятия всех флажков
+  checkAndTakeOfAllCheckboxes(nodeListCheckElem, nodeListTaskTextElem);
+  // вызываем функцию для вычисления активных и завершенных задач
+  calcActiveAndCompletedTasks();
 });
 
 // после срабатывания события "dblclick" по тексту задачи, переданные внутрь функции выполняется
