@@ -48,14 +48,14 @@ export function generateId() {
 // функция создает элементы списка задач
 export function createTaskListItems(date, remove, tick, note, id) {
   // ___Считываем маркированный список <ul>
-  const ulElem = document.querySelector('.outputNotes__list');
+  const ulElem = document.querySelector('.outputTask__list');
 
   // Метод createElement создает новый элемент,передав в параметре имя тега
   // создаем элемент <li>
   const liElem = document.createElement('li');
-  // для элемента <li> назначаем класс "outputNotes__list-item",
+  // для элемента <li> назначаем класс "outputTask__list-item",
   // метод add объекта classList добавляет CSS класс элементу
-  liElem.classList.add('outputNotes__list-item');
+  liElem.classList.add('outputTask__list-item');
   // создаем элементы для блока 1
   const divElem1 = document.createElement('div');
   const spanElem1 = document.createElement('span');
@@ -70,13 +70,13 @@ export function createTaskListItems(date, remove, tick, note, id) {
   const crossElem2 = document.createTextNode(remove);
 
   // для элементов назначаем классы
-  divElem1.classList.add('outputNotes__list-item-block1');
-  spanElem1.classList.add('outputNotes__list-item-block1-text');
-  inputElem1.classList.add('outputNotes__list-item-block1-checkbox');
+  divElem1.classList.add('outputTask__list-item-block1');
+  spanElem1.classList.add('outputTask__list-item-block1-text');
+  inputElem1.classList.add('outputTask__list-item-block1-checkbox');
   //
-  divElem2.classList.add('outputNotes__list-item-block2');
-  spanElem2.classList.add('outputNotes__list-item-block2-date');
-  spanElem3.classList.add('outputNotes__list-item-block2-remove');
+  divElem2.classList.add('outputTask__list-item-block2');
+  spanElem2.classList.add('outputTask__list-item-block2-date');
+  spanElem3.classList.add('outputTask__list-item-block2-remove');
 
   // добавляем атрибут для тега <input>
   inputElem1.setAttribute('type', 'checkbox');
@@ -121,7 +121,7 @@ export function displayLocalStorageData() {
     const dataset = returnAnObjectWithDataFromLocalStorage();
     // получим HTMLCollection элементов <li> списка <ul>
     const liCollection = document.getElementsByClassName(
-      'outputNotes__list-item',
+      'outputTask__list-item',
     );
     /* проверим уже выведенный список задач на страницы с записями
        из localStorage, данная проверка нужна, чтобы избежать повторного

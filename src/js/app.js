@@ -2,13 +2,13 @@ import { displayLocalStorageData } from './modules';
 import {
   addTaskToTheList,
   replaceTaskToTheListWhenEditing,
-} from './enteringNotes';
+} from './enteringTask';
 
 import {
   changeCheckboxAndClassOfTaskListItem,
   removeFromTheTaskList,
   editTheTaskText,
-} from './outputNotes';
+} from './outputTask';
 
 import {
   calcActiveAndCompletedTasks,
@@ -17,7 +17,7 @@ import {
 } from './control';
 
 // ___Считываем button для добавления задачи
-const buttonElem = document.querySelector('.enteringNotes__buttons-item');
+const buttonElem = document.querySelector('.enteringTask__buttons-item');
 // ___Считываем input для поиска задач
 const inpSearchElem = document.querySelector('.search__item');
 // ___Считываем элемент select выбора активных и завершенных задач
@@ -51,7 +51,7 @@ document.addEventListener('dblclick', (event) => {
   const clickedElement = event.target;
   // метод contains объекта classList проверяет наличие CSS класса у элемента
   // проверим есть ли у элемента по которому мы кликнули нужный нам класс
-  if (clickedElement.classList.contains('outputNotes__list-item-block1-text')) {
+  if (clickedElement.classList.contains('outputTask__list-item-block1-text')) {
     // если есть, то это нужным нам элемент и мы его запишем
     const taskTextElement = clickedElement;
     // вызываем функцию для редактирования текста задачи
@@ -66,7 +66,7 @@ document.addEventListener('click', (event) => {
 
   // метод contains объекта classList проверяет наличие CSS класса у элемента
   // проверим есть ли у элемента по которому мы кликнули нужный нам класс
-  if (clickedElement.classList.contains('outputNotes__list-item-block1-checkbox')) {
+  if (clickedElement.classList.contains('outputTask__list-item-block1-checkbox')) {
     // если есть, то это нужным нам элемент и мы его запишем
     const checkboxElement = clickedElement;
     // вызываем функцию для изменения checkbox и класса у элемента списка задач
@@ -87,7 +87,7 @@ document.addEventListener('click', (event) => {
   const clickedElement = event.target;
   // метод contains объекта classList проверяет наличие CSS класса у элемента
   // проверим есть ли у элемента по которому мы кликнули нужный нам класс
-  if (clickedElement.classList.contains('outputNotes__list-item-block2-remove')) {
+  if (clickedElement.classList.contains('outputTask__list-item-block2-remove')) {
     // если есть, то это нужным нам элемент и мы его запишем
     const crossElement = clickedElement;
     // вызываем функцию для удаления элемента из списка задач

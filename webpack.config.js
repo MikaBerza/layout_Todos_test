@@ -7,8 +7,8 @@ module.exports = {
   entry: {
     index: './src/js/index.js',
     modules: './src/js/modules.js',
-    enteringNotes: './src/js/enteringNotes.js',
-    outputNotes: './src/js/outputNotes.js',
+    enteringTask: './src/js/enteringTask.js',
+    outputTask: './src/js/outputTask.js',
     control: './src/js/control.js',
     app: './src/js/app.js',
   },
@@ -29,8 +29,8 @@ module.exports = {
       chunks: [
         'index',
         'modules',
-        'enteringNotes',
-        'outputNotes',
+        'enteringTask',
+        'outputTask',
         'control',
         'app',
       ],

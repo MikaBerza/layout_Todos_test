@@ -1,5 +1,5 @@
-/* _____enteringNotes */
-.enteringNotes__textarea-item {
+/* _____enteringTask */
+.enteringTask__textarea-item {
   width: 100%;
   height: 290px;
 
@@ -16,22 +16,22 @@
   transition: background-color 0.3s ease;
 }
 
-.enteringNotes__textarea-item::placeholder {
+.enteringTask__textarea-item::placeholder {
   font-size: 20px;
   font-style: oblique;
   font-weight: 200;
 
 }
 
-.enteringNotes__textarea-item:hover {
+.enteringTask__textarea-item:hover {
   background-color: var(--white-color);
 }
 
-.enteringNotes__buttons {
+.enteringTask__buttons {
   margin-top: 10px;
 }
 
-.enteringNotes__buttons-item {
+.enteringTask__buttons-item {
   width: 100%;
   padding: 10px;
   border-radius: 8px;
@@ -47,7 +47,7 @@
     font-weight 0.3s ease;
 }
 
-.enteringNotes__buttons-item:hover {
+.enteringTask__buttons-item:hover {
   border: 1px solid var(--mapleGreen-color);
   background-color: var(--mapleGreen-color);
   color: var(--white-color);
@@ -56,7 +56,7 @@
   cursor: pointer;
 }
 
-.enteringNotes__buttons-item:active {
+.enteringTask__buttons-item:active {
   border: 1px solid var(--emeraldGreen-color);
   background-color: var(--emeraldGreen-color);
 }

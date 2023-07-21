@@ -14,25 +14,25 @@
   }
 
   .control,
-  .enteringNotes,
-  .outputNotes {
+  .enteringTask,
+  .outputTask {
     max-width: 600px;
     margin: auto;
   }
 
-  .enteringNotes {
+  .enteringTask {
     margin-top: 100px;
   }
 
-  .enteringNotes__textarea-item {
+  .enteringTask__textarea-item {
     height: 100px;
   }
 
-  .outputNotes {
+  .outputTask {
     margin-top: 10px;
   }
 
-  .outputNotes__list {
+  .outputTask__list {
     max-height: 250px;
   }
 
