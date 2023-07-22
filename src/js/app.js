@@ -2,11 +2,11 @@ import { displayLocalStorageData } from './modules';
 import {
   addTaskToTheList,
   replaceTaskToTheListWhenEditing,
+  checkAndTakeOfAllCheckboxes,
 } from './enteringTask';
 
 import {
   changeCheckboxAndClassOfTaskListItem,
-  checkAndTakeOfAllCheckboxes,
   removeFromTheTaskList,
   editTheTaskText,
 } from './outputTask';
@@ -24,7 +24,7 @@ const inpSearchElem = document.querySelector('.search__item');
 // ___Считываем элемент select выбора активных и завершенных задач
 const selectElem = document.querySelector('.filtering__select');
 // ___Считываем button для установки и снятия всех флажков
-const buttonSetCheckboxes = document.querySelector('.outputTask__buttons-item');
+const buttonSetCheckboxes = document.querySelector('.enteringTask__buttons-itemMark');
 
 // После срабатывания события "DOMContentLoaded", переданные внутрь функции выполняется
 // Событие DOMContentLoaded происходит, когда браузер разобрал HTML-страницу и составил DOM-дерево
