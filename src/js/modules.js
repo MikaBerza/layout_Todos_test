@@ -123,11 +123,28 @@ export function displayLocalStorageData() {
     const liCollection = document.getElementsByClassName(
       'outputTask__list-item',
     );
+    /* Если во время редактирования страницы, перезагрузить страницу,
+       то поле (editing:true) так и останется в таком состоянии и в дальнейшем
+       эту запись уже нельзя будет перевести в другое состояние.
+       Для исправления этой ошибки, изменим все поля на (editing:false) */
+
     /* проверим уже выведенный список задач на страницы с записями
        из localStorage, данная проверка нужна, чтобы избежать повторного
        вывода задач при перезагрузки страницы */
     if (dataset.length !== liCollection.length) {
-      dataset.forEach((item) => {
+      dataset.forEach((item, index) => {
+        // создаем новый объект на основе параметра
+        const newItem = { ...item };
+        // присваиваем новое значение
+        newItem.editing = false;
+        // заменяем элемент в массиве
+        dataset[index] = newItem;
+        // преобразует значение JS в строку JSON
+        const strDataset = JSON.stringify(dataset);
+        // добавляем набор данных в localStorage
+        window.localStorage.setItem('keyDataset', strDataset);
+
+        // вызываем функцию для создания элементов списка задач
         createTaskListItems(
           item.date,
           item.remove,

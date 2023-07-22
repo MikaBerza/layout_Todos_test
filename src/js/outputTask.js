@@ -68,8 +68,8 @@ export function changeCheckboxAndClassOfTaskListItem(checkboxElement) {
       if (item.id === idElem) {
         // создаем новый объект на основе параметра
         const newItem = { ...item };
-        // присваиваем новое значение
         if (newItem.tick === false) {
+          // присваиваем новое значение
           newItem.tick = true;
           // вызываем функцию чтобы добавить класс элементу
           addClassToElement(taskTextElem, 'completed');
