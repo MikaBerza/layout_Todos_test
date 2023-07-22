@@ -18,7 +18,7 @@ import {
 } from './control';
 
 // ___Считываем button для добавления задачи
-const buttonAddElem = document.querySelector('.enteringTask__buttons-item');
+const buttonAddElem = document.querySelector('.enteringTask__buttons-itemAdding');
 // ___Считываем input для поиска задач
 const inpSearchElem = document.querySelector('.search__item');
 // ___Считываем элемент select выбора активных и завершенных задач

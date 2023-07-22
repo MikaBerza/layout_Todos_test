@@ -10,7 +10,7 @@ export function editTheTaskText(taskTextElement) {
   // проверим строку с данными из localStorage на null (отсутствие значения)
   if (checkLocalStorageForNull() !== null) {
     // ___Считываем <button> для добавления задачи
-    const buttonElem = document.querySelector('.enteringTask__buttons-item');
+    const buttonElem = document.querySelector('.enteringTask__buttons-itemAdding');
     // ___Считываем элемент <textarea>
     const textareaElem = document.querySelector('.enteringTask__textarea-item');
 

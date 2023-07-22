@@ -32,7 +32,7 @@
   display: flex;
 }
 
-.enteringTask__buttons-item {
+.enteringTask__buttons-itemAdding {
   width: 100%;
   padding: 10px;
   border-radius: 8px;
@@ -48,7 +48,7 @@
     font-weight 0.3s ease;
 }
 
-.enteringTask__buttons-item:hover {
+.enteringTask__buttons-itemAdding:hover {
   border: 1px solid var(--mapleGreen-color);
   background-color: var(--mapleGreen-color);
   color: var(--white-color);
@@ -57,7 +57,7 @@
   cursor: pointer;
 }
 
-.enteringTask__buttons-item:active {
+.enteringTask__buttons-itemAdding:active {
   border: 1px solid var(--emeraldGreen-color);
   background-color: var(--emeraldGreen-color);
   color: var(--lightGrey-color);
