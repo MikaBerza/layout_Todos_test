@@ -29,6 +29,7 @@
 .enteringTask__buttons {
   margin-top: 10px;
   display: flex;
+  justify-content: space-between;
 }
 
 /* кнопка 1(Adding), 2(Mark), 3(Clearing) */
@@ -61,8 +62,7 @@
 
 /* кнопка 1(Adding) */
 .enteringTask__buttons-itemAdding {
-  width: 70%;
-  margin-right: 10px;
+  width: 65%;
   color: var(--black-color);
   font-weight: 600;
   transition:
@@ -84,7 +84,6 @@
 /* кнопка 2(Mark) */
 .enteringTask__buttons-itemMark {
   width: 15%;
-  margin-right: 10px;
   background-image: url('../assets/images/icon_checkbox_b.png');
   background-size: 25px 25px;
   background-repeat: no-repeat;

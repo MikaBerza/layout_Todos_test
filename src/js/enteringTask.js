@@ -84,7 +84,7 @@ export function addTaskToTheList() {
   }
 }
 
-// функция заменить задачу в список задач при редактировании
+// функция заменить задачу в списке задач при редактировании
 export function replaceTaskToTheListWhenEditing() {
   // ___Считываем <button> для добавления задачи
   const buttonElem = document.querySelector('.enteringTask__buttons-itemAdding');
