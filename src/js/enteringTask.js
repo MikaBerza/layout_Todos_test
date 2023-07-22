@@ -88,6 +88,10 @@ export function addTaskToTheList() {
 export function replaceTaskToTheListWhenEditing() {
   // ___Считываем <button> для добавления задачи
   const buttonElem = document.querySelector('.enteringTask__buttons-itemAdding');
+  // ___Считываем button для установки и снятия всех флажков
+  const buttonSetCheckboxes = document.querySelector('.enteringTask__buttons-itemMark');
+  // ___Считываем button для удаления элементов с отмеченными флажками
+  const buttonDeletingItemsWithCheckboxes = document.querySelector('.enteringTask__buttons-itemClearing');
   // ___Считываем элемент <textarea>
   const textareaElem = document.querySelector('.enteringTask__textarea-item');
 
@@ -143,6 +147,8 @@ export function replaceTaskToTheListWhenEditing() {
 
         // вызываем функцию чтобы удалить класс у элемента
         removeClassFromElement(ulElem, 'dn');
+        removeClassFromElement(buttonSetCheckboxes, 'dn');
+        removeClassFromElement(buttonDeletingItemsWithCheckboxes, 'dn');
         // После редактирования записи, очищаем поле для ввода
         textareaElem.value = '';
       }

@@ -11,6 +11,10 @@ export function editTheTaskText(taskTextElement) {
   if (checkLocalStorageForNull() !== null) {
     // ___Считываем <button> для добавления задачи
     const buttonElem = document.querySelector('.enteringTask__buttons-itemAdding');
+    // ___Считываем button для установки и снятия всех флажков
+    const buttonSetCheckboxes = document.querySelector('.enteringTask__buttons-itemMark');
+    // ___Считываем button для удаления элементов с отмеченными флажками
+    const buttonDeletingItemsWithCheckboxes = document.querySelector('.enteringTask__buttons-itemClearing');
     // ___Считываем элемент <textarea>
     const textareaElem = document.querySelector('.enteringTask__textarea-item');
 
@@ -36,6 +40,9 @@ export function editTheTaskText(taskTextElement) {
 
           // вызываем функцию чтобы добавить класс элементу
           addClassToElement(ulElem, 'dn');
+          addClassToElement(buttonSetCheckboxes, 'dn');
+          addClassToElement(buttonDeletingItemsWithCheckboxes, 'dn');
+
           // изменяем название кнопки
           buttonElem.textContent = 'Редактировать';
         }
