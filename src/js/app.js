@@ -3,6 +3,7 @@ import {
   addTaskToTheList,
   replaceTaskToTheListWhenEditing,
   checkAndTakeOfAllCheckboxes,
+  deletingItemsWithCheckboxes,
 } from './enteringTask';
 
 import {
@@ -25,6 +26,8 @@ const inpSearchElem = document.querySelector('.search__item');
 const selectElem = document.querySelector('.filtering__select');
 // ___Считываем button для установки и снятия всех флажков
 const buttonSetCheckboxes = document.querySelector('.enteringTask__buttons-itemMark');
+// ___Считываем button для удаления элементов с отмеченными флажками
+const buttonDeletingItemsWithCheckboxes = document.querySelector('.enteringTask__buttons-itemClearing');
 
 // После срабатывания события "DOMContentLoaded", переданные внутрь функции выполняется
 // Событие DOMContentLoaded происходит, когда браузер разобрал HTML-страницу и составил DOM-дерево
@@ -55,6 +58,14 @@ buttonSetCheckboxes.addEventListener('click', () => {
   const nodeListTaskTextElem = document.querySelectorAll('.outputTask__list-item-block1-text');
   // вызываем функцию для установки или снятия всех флажков
   checkAndTakeOfAllCheckboxes(nodeListCheckElem, nodeListTaskTextElem);
+  // вызываем функцию для вычисления активных и завершенных задач
+  calcActiveAndCompletedTasks();
+});
+
+// событие click возникает каждый раз когда кликнули на элемент <button> левой кнопкой мыши
+buttonDeletingItemsWithCheckboxes.addEventListener('click', () => {
+  // вызываем функцию для удаления элементов с отмеченными флажками
+  deletingItemsWithCheckboxes();
   // вызываем функцию для вычисления активных и завершенных задач
   calcActiveAndCompletedTasks();
 });

@@ -101,17 +101,19 @@ export function removeFromTheTaskList(crossElement) {
     // получим id элемента <li>
     const idElem = liElem.getAttribute('data-id');
 
-    dataset.forEach((item, index) => {
-      if (item.id === idElem) {
-        // удаляем объект из массива(localStorage) по индексу
-        dataset.splice(index, 1);
-        // удаляем элемент из DOM
-        liElem.remove();
-      }
+    /* Метод findIndex() возвращает индекс первого найденного в массиве элемента,
+    который подходит под условие переданной функции,
+    если же ни одного подходящего элемента не найдётся, то метод вернёт -1 */
+    const elementIndex = dataset.findIndex((item) => item.id === idElem);
+    if (elementIndex !== -1) {
+      // удаляем объект из массива(localStorage) по индексу
+      dataset.splice(elementIndex, 1);
+      // удаляем элемент из DOM
+      liElem.remove();
       // преобразует значение JS в строку JSON
       const strDataset = JSON.stringify(dataset);
       // добавляем набор данных в localStorage
       window.localStorage.setItem('keyDataset', strDataset);
-    });
+    }
   }
 }

@@ -226,3 +226,36 @@ export function checkAndTakeOfAllCheckboxes(nodeListCheckElem, nodeListTaskTextE
     }
   }
 }
+
+// функция для удаления элементов с отмеченными флажками
+export function deletingItemsWithCheckboxes() {
+  // проверим строку с данными из localStorage на null (отсутствие значения)
+  if (checkLocalStorageForNull() !== null) {
+    // запишем возвращенный объект с данными из localStorage в константу
+    const dataset = returnAnObjectWithDataFromLocalStorage();
+    // получим NodeList элементов <li>
+    const nodeListElemLi = document.querySelectorAll('.outputTask__list-item');
+
+    /* Будем пробегаться по массиву (dataset) в обратном порядке,
+       чтобы избежать влияет изменение индексов при удалении элементов
+       методом (splice) */
+
+    for (let i = dataset.length - 1; i >= 0; i -= 1) {
+      if (dataset[i].tick === true) {
+        // удаляем объект из массива(localStorage) по индексу
+        /* В данном случае, при удалении элемента с индексом `i`
+        с помощью метода (splice), все элементы массива с более высокими индексами
+        сдвигаются на одну позицию влево, и при следующей итерации цикла `for`,
+        переменная `i` снова увеличивается на 1, что позволяет корректно обойти
+        все элементы массива (dataset) */
+        dataset.splice(i, 1);
+        // удаляем элемент из DOM
+        nodeListElemLi[i].remove();
+      }
+      // преобразует значение JS в строку JSON
+      const strDataset = JSON.stringify(dataset);
+      // добавляем набор данных в localStorage
+      window.localStorage.setItem('keyDataset', strDataset);
+    }
+  }
+}
