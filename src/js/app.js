@@ -45,9 +45,16 @@ buttonAddElem.addEventListener('click', () => {
     addTaskToTheList();
     // вызываем функцию для вычисления активных и завершенных задач
     calcActiveAndCompletedTasks();
+
+    // получим текст выбранного пункта списка
+    const textOfTheSelectedItem = selectElem.value;
+    // вызываем функцию для получения отфильтрованных элементов в списке задач
+    getFilteredItems(textOfTheSelectedItem);
   } else if (buttonAddElem.textContent === 'Редактировать') {
     // вызываем функцию для замены задачи в списке задач при редактировании
     replaceTaskToTheListWhenEditing();
+    // вызываем функцию для вычисления активных и завершенных задач
+    calcActiveAndCompletedTasks();
   }
 });
 

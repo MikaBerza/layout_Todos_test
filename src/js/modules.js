@@ -166,3 +166,16 @@ export function addClassToElement(element, className) {
 export function removeClassFromElement(element, className) {
   element.classList.remove(className);
 }
+
+// обновить видимость кнопки удаления элементов
+export function updateTheVisibilityOfTheDeleteItemsButton(indicator) {
+  // ___Считываем button для удаления элементов с отмеченными флажками
+  const buttonDeletingItemsWithCheckboxes = document.querySelector('.enteringTask__buttons-itemClearing');
+  if (indicator > 0) {
+    // вызываем функцию чтобы удалить класс у элемента
+    removeClassFromElement(buttonDeletingItemsWithCheckboxes, 'dn');
+  } else if (indicator === 0) {
+    // вызываем функцию чтобы добавить класс элементу
+    addClassToElement(buttonDeletingItemsWithCheckboxes, 'dn');
+  }
+}

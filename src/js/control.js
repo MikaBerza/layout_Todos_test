@@ -1,6 +1,7 @@
 import {
   checkLocalStorageForNull,
   returnAnObjectWithDataFromLocalStorage,
+  updateTheVisibilityOfTheDeleteItemsButton,
 } from './modules';
 
 // функция поиска элементов в списке задач
@@ -73,6 +74,8 @@ export function calcActiveAndCompletedTasks() {
     tasksActive.textContent = 'активно-0';
     tasksCompleted.textContent = 'завершено-0';
   }
+  // вызываем функцию для обновления видимости кнопки удаления элементов
+  updateTheVisibilityOfTheDeleteItemsButton(indicator.value);
 }
 
 // ___функция для получения отфильтрованных элементов в списке задач
