@@ -4,6 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Список дел">
+  <meta name="keywords" content="список задач, список дел, блокнот,
+  планирование задач, помощник по задачам, записная книжка, электронный блокнот">
   <title>Todo.ru</title>
 </head>
 
@@ -14,14 +18,11 @@
     </header>
 
     <main class="mainContent w1">
-
       <section class="control">
-        <!-- Поиск -->
         <div class="search">
           <input class="search__item" type="search" placeholder="&#128269; поиск задач">
         </div>
 
-        <!-- Счетчики -->
         <div class="counters">
           <div class="counters__tasks">
             <span class="counters__tasks-all">всего</span>
@@ -31,7 +32,6 @@
           <meter class="counters__indicator" value="0" min="0" max="0" low="0" high="0"></meter>
         </div>
 
-        <!-- фильтрация -->
         <div class="filtering">
           <span class="filtering__text">фильтрация</span>
           <select class="filtering__select">
@@ -42,7 +42,6 @@
         </div>
       </section>
 
-      <!-- ввод задач -->
       <section class="enteringTask">
         <div class="enteringTask__textarea">
           <textarea class="enteringTask__textarea-item" rows="13" placeholder="Что нужно сделать?"></textarea>
@@ -54,7 +53,6 @@
         </div>
       </section>
 
-      <!-- вывод задач -->
       <section class="outputTask">
         <ul class="outputTask__list">
         </ul>
@@ -100,7 +98,5 @@
       </div>
     </footer>
   </div>
-
 </body>
-
 </html>
