@@ -45,7 +45,20 @@ export function generateId() {
   return Math.round(Math.random() * 100000000000000).toString(16);
 }
 
-// функция создает элементы списка задач
+/* Создадим такую разметку*
+ <li class="outputTask__list-item">
+  <div class="outputTask__list-item-block1">
+    <span class="outputTask__list-item-block1-text">текст</span>
+    <input class="outputTask__list-item-block1-checkbox" type="checkbox" checked="off">
+  </div>
+  <div class="outputTask__list-item-block2">
+    <span class="outputTask__list-item-block2-date">22/12/22, 13:32</span>
+    <span class="outputTask__list-item-block2-remove">x</span>
+  </div>
+</li>
+*/
+
+// функция создает элементы списка задач*
 export function createTaskListItems(date, remove, tick, note, id) {
   // ___Считываем маркированный список <ul>
   const ulElem = document.querySelector('.outputTask__list');
