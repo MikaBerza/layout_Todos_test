@@ -29,10 +29,10 @@ a {
 
 /* внешняя обертка */
 .wrapper {
-  font-family: 'Roboto', 'Times New Roman', Times, serif;
-  font-style: normal;
-  font-size: 18px;
   color: var(--dimgray-color);
+  font-family: 'Roboto', 'Times New Roman', Times, serif;
+  font-size: 18px;
+  font-style: normal;
 }
 
 /* размер viewport */

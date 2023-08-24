@@ -1,26 +1,23 @@
 .mainContent {
   height: auto;
   padding: 20px 10px;
-
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-
+  border: 4px solid var(--darkAzure-color);
+  border-radius: 20px;
   background-image: url('../assets/images/1.51bird.svg');
   background-repeat: no-repeat;
   background-size: 170%;
   opacity: 0.8;
-
-  border: 4px solid var(--darkAzure-color);
-  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .control,
 .enteringTask,
 .outputTask {
   width: 478px;
-  align-self: stretch;
   padding: 0px 10px;
+  align-self: stretch;
 }
 
 /* полоса прокрутки */
@@ -43,8 +40,8 @@
 .enteringTask__textarea-item::-webkit-scrollbar-thumb,
 .outputTask__list::-webkit-scrollbar-thumb {
   border: 1px solid var(--lightGrey-color);
-  background-color: var(--lightGrey-color);
   border-radius: 8px;
+  background-color: var(--lightGrey-color);
 }
 
 .enteringTask__textarea-item::-webkit-scrollbar-thumb:hover,

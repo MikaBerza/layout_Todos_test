@@ -3,11 +3,11 @@
 .search__item {
   width: 100%;
   height: auto;
-  background-color: var(--lightGrey2-color);
-  border: 1px solid var(--lightGrey2-color);
   border-radius: 8px 8px 0 0;
+  border: 1px solid var(--lightGrey2-color);
   /* убираем жирный бордер при клике */
   outline: none;
+  background-color: var(--lightGrey2-color);
   transition: background-color 0.3s ease;
 }
 
@@ -24,14 +24,14 @@
 
 /* ___counters */
 .counters {
+  background-color: var(--lightGrey2-color);
   display: flex;
   flex-direction: column;
-  background-color: var(--lightGrey2-color);
 }
 
 .counters__tasks {
-  display: flex;
   padding: 6px 6px 0 6px;
+  display: flex;
 }
 
 .counters__tasks span:not(:last-child) {
@@ -41,18 +41,17 @@
 .counters__indicator {
   width: 100%;
   height: 40px;
-  padding-left: 6px;
   padding-right: 6px;
+  padding-left: 6px;
 }
 
 /* ___filtering */
 .filtering {
-  display: flex;
-  flex-direction: column;
-
-  background-color: var(--lightGrey2-color);
   border: 1px solid var(--lightGrey2-color);
   border-radius: 0 0 8px 8px;
+  background-color: var(--lightGrey2-color);
+  display: flex;
+  flex-direction: column;
 }
 
 .filtering__text {
@@ -60,20 +59,19 @@
 }
 
 .filtering__select {
-  color: var(--dimgray-color);
-  background-color: var(--lightGrey2-color);
+  /* чтобы текст не залезал на стрелку для развертывания списка */
+  padding-right: 25px;
   border: 1px solid var(--lightGrey2-color);
   border-radius: 0px 0px 8px 8px;
   /* убираем жирный бордер при клике */
   outline: none;
-
+  background-color: var(--lightGrey2-color);
+  color: var(--dimgray-color);
   /* уберем стрелку у select */
   -webkit-appearance: none;
   -moz-appearance: none;
+  /* appearance: none для сброса системных стилей */
   appearance: none;
-
-  /* чтобы текст не залезал на стрелку для развертывания списка */
-  padding-right: 25px;
 }
 
 .filtering {
@@ -83,18 +81,16 @@
 
 .filtering::after {
   content: '';
-  background-image: url('../../dist/images/VectorDown.svg');
-  background-size: 100%;
-  background-repeat: no-repeat;
-  /* Нужный размер */
-  height: 15px;
-  width: 15px;
   position: absolute;
   /* отступ 67% от верхней границе*/
   top: 67%;
   /* отступ справа от границе*/
   right: 8px;
-
+  height: 15px;
+  width: 15px;
+  background-image: url('../../dist/images/VectorDown.svg');
+  background-size: 100%;
+  background-repeat: no-repeat;
   /* Свойство pointer-events определяет, 
   как HTML-элемент реагирует на различные события мыши,
   т.е. мы делаем элемент прозрачным для клика и 
@@ -107,6 +103,6 @@
 }
 
 .filtering__select:active {
-  box-shadow: 0 0 10px var(--lightGrey2-color);
   border: 1px solid var(--lightGrey2-color);
+  box-shadow: 0 0 10px var(--lightGrey2-color);
 }

@@ -1,25 +1,21 @@
 /* _____outputTask */
-
 .outputTask__list {
+  min-height: 0px;
+  max-height: 320px;
   margin: 0;
   padding: 0;
   border-radius: 10px;
-  min-height: 0px;
-  max-height: 320px;
   overflow: auto;
 }
 
 .outputTask__list-item {
   box-sizing: border-box;
-  padding: 6px;
-
   margin: 0px;
-  /* margin-right: 10px; */
   margin-right: auto;
-  background-color: var(--lightGrey2-color);
-  border: 1px solid var(--lightGrey2-color);
+  padding: 6px;
   border-radius: 8px;
-
+  border: 1px solid var(--lightGrey2-color);
+  background-color: var(--lightGrey2-color);
   opacity: 0.8;
 }
 
@@ -54,12 +50,12 @@
 }
 
 .outputTask__list-item-block2-date {
-  display: flex;
-  justify-content: left;
   margin-top: 10px;
   color: var(--black-color);
   font-size: 13px;
   font-weight: 600;
+  display: flex;
+  justify-content: left;
 }
 
 .outputTask__list-item-block2-remove {
@@ -68,10 +64,10 @@
 
 /* при наведении на элемент <li> меняем стиль для элемента <span> */
 .outputTask__list-item:hover .outputTask__list-item-block2-remove {
-  display: flex;
-  justify-content: right;
   color: var(--tomato-color);
   font-size: 18px;
   font-weight: 900;
+  display: flex;
+  justify-content: right;
   cursor: pointer;
 }

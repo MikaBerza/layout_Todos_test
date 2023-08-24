@@ -8,15 +8,15 @@
 }
 
 .footers__link {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
   margin: auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 .footers__link-text {
-  color: var(--tomato-color);
   max-width: 222px;
+  color: var(--tomato-color);
 }
 
 .footers__link-text,
