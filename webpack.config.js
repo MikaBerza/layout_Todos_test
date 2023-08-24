@@ -6,11 +6,6 @@ module.exports = {
   mode: 'development',
   entry: {
     index: './src/js/index.js',
-    modules: './src/js/modules.js',
-    enteringTask: './src/js/enteringTask.js',
-    outputTask: './src/js/outputTask.js',
-    control: './src/js/control.js',
-    app: './src/js/app.js',
   },
   output: {
     filename: '[name].js',
@@ -26,14 +21,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './src/pages/index.html',
-      chunks: [
-        'index',
-        'modules',
-        'enteringTask',
-        'outputTask',
-        'control',
-        'app',
-      ],
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
