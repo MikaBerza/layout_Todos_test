@@ -9,39 +9,39 @@
     font-size: 60px;
   }
 
-  .mainContent {
+  .main-content {
     background-size: cover;
   }
 
   .control,
-  .enteringTask,
-  .outputTask {
+  .entering-task,
+  .output-task {
     max-width: 600px;
     margin: auto;
   }
 
-  .enteringTask {
+  .entering-task {
     margin-top: 100px;
   }
 
-  .enteringTask__textarea-item {
+  .entering-task__textarea-item {
     height: 100px;
   }
 
-  .outputTask {
+  .output-task {
     margin-top: 10px;
   }
 
-  .enteringTask__buttons-itemMark,
-  .enteringTask__buttons-itemClearing {
+  .entering-task__button-mark,
+  .entering-task__button-clearing {
     background-size: 20px 20px;
   }
 
-  .outputTask__list {
+  .output-task__list {
     max-height: 250px;
   }
 
-  .footers__linkContainer {
+  .footers__container {
     padding-top: 0px;
     padding-bottom: 0px;
   }

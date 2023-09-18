@@ -1,5 +1,5 @@
-/* _____outputTask */
-.outputTask__list {
+/* _____output-task */
+.output-task__list {
   overflow: auto;
 
   min-height: 0px;
@@ -10,7 +10,7 @@
   border-radius: 10px;
 }
 
-.outputTask__list-item {
+.output-task__list-item {
   box-sizing: border-box;
   margin: 0px;
   margin-right: auto;
@@ -23,18 +23,18 @@
 }
 
 /* выбрать все элементы кроме первого */
-.outputTask__list-item:not(:first-child) {
+.output-task__list-item:not(:first-child) {
   margin-top: 10px;
 }
 
-.outputTask__list-item-block1,
-.outputTask__list-item-block2 {
+.output-task__list-item-block1,
+.output-task__list-item-block2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.outputTask__list-item-block1-text {
+.output-task__list-item-block1-text {
   /* заданная ширина блока */
   max-width: 96%;
 
@@ -46,14 +46,14 @@
   color: var(--black-color);
 }
 
-.outputTask__list-item-block1-checkbox[type=checkbox] {
+.output-task__list-item-block1-checkbox[type=checkbox] {
   margin: 0;
   font-size: 18px;
   font-weight: 800;
   cursor: pointer;
 }
 
-.outputTask__list-item-block2-date {
+.output-task__list-item-block2-date {
   display: flex;
   justify-content: left;
 
@@ -65,12 +65,12 @@
   color: var(--black-color);
 }
 
-.outputTask__list-item-block2-remove {
+.output-task__list-item-block2-remove {
   display: none;
 }
 
 /* при наведении на элемент <li> меняем стиль для элемента <span> */
-.outputTask__list-item:hover .outputTask__list-item-block2-remove {
+.output-task__list-item:hover .output-task__list-item-block2-remove {
   display: flex;
   justify-content: right;
 

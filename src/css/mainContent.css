@@ -1,4 +1,4 @@
-.mainContent {
+.main-content {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -15,8 +15,8 @@
 }
 
 .control,
-.enteringTask,
-.outputTask {
+.entering-task,
+.output-task {
   align-self: stretch;
 
   width: 478px;
@@ -24,37 +24,37 @@
 }
 
 /* полоса прокрутки */
-.enteringTask__textarea-item::-webkit-scrollbar,
-.outputTask__list::-webkit-scrollbar {
+.entering-task__textarea-item::-webkit-scrollbar,
+.output-task__list::-webkit-scrollbar {
   /* ширина scrollbar */
   width: 12px;
 }
 
 /* полоса прокрутки (трек) */
-.enteringTask__textarea-item::-webkit-scrollbar-track,
-.outputTask__list::-webkit-scrollbar-track {
+.entering-task__textarea-item::-webkit-scrollbar-track,
+.output-task__list::-webkit-scrollbar-track {
   background-color: var(--lightGrey2-color);
   border: 1px solid var(--lightGrey2-color);
   border-radius: 8px;
 }
 
 /* полоса прокрутки (ползунок) */
-.enteringTask__textarea-item::-webkit-scrollbar-thumb,
-.outputTask__list::-webkit-scrollbar-thumb {
+.entering-task__textarea-item::-webkit-scrollbar-thumb,
+.output-task__list::-webkit-scrollbar-thumb {
   background-color: var(--lightGrey-color);
   border: 1px solid var(--lightGrey-color);
   border-radius: 8px;
 }
 
-.enteringTask__textarea-item::-webkit-scrollbar-thumb:hover,
-.outputTask__list::-webkit-scrollbar-thumb:hover {
+.entering-task__textarea-item::-webkit-scrollbar-thumb:hover,
+.output-task__list::-webkit-scrollbar-thumb:hover {
   background-color: var(--mapleGreen-color);
   border: 1px solid var(--mapleGreen-color);
   cursor: pointer;
 }
 
-.enteringTask__textarea-item::-webkit-scrollbar-thumb:active,
-.outputTask__list::-webkit-scrollbar-thumb:active {
+.entering-task__textarea-item::-webkit-scrollbar-thumb:active,
+.output-task__list::-webkit-scrollbar-thumb:active {
   background-color: var(--emeraldGreen-color);
   border: 1px solid var(--emeraldGreen-color);
 }

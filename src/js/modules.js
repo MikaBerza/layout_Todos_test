@@ -46,14 +46,14 @@ export function generateId() {
 }
 
 /* Создадим такую разметку*
- <li class="outputTask__list-item">
-  <div class="outputTask__list-item-block1">
-    <span class="outputTask__list-item-block1-text">текст</span>
-    <input class="outputTask__list-item-block1-checkbox" type="checkbox" checked="off">
+ <li class="output-task__list-item">
+  <div class="output-task__list-item-block1">
+    <span class="output-task__list-item-block1-text">текст</span>
+    <input class="output-task__list-item-block1-checkbox" type="checkbox" checked="off">
   </div>
-  <div class="outputTask__list-item-block2">
-    <span class="outputTask__list-item-block2-date">22/12/22, 13:32</span>
-    <span class="outputTask__list-item-block2-remove">x</span>
+  <div class="output-task__list-item-block2">
+    <span class="output-task__list-item-block2-date">22/12/22, 13:32</span>
+    <span class="output-task__list-item-block2-remove">x</span>
   </div>
 </li>
 */
@@ -61,14 +61,14 @@ export function generateId() {
 // функция создает элементы списка задач*
 export function createTaskListItems(date, remove, tick, note, id) {
   // ___Считываем маркированный список <ul>
-  const ulElem = document.querySelector('.outputTask__list');
+  const ulElem = document.querySelector('.output-task__list');
 
   // Метод createElement создает новый элемент,передав в параметре имя тега
   // создаем элемент <li>
   const liElem = document.createElement('li');
-  // для элемента <li> назначаем класс "outputTask__list-item",
+  // для элемента <li> назначаем класс "output-task__list-item",
   // метод add объекта classList добавляет CSS класс элементу
-  liElem.classList.add('outputTask__list-item');
+  liElem.classList.add('output-task__list-item');
   // создаем элементы для блока 1
   const divElem1 = document.createElement('div');
   const spanElem1 = document.createElement('span');
@@ -83,13 +83,13 @@ export function createTaskListItems(date, remove, tick, note, id) {
   const crossElem2 = document.createTextNode(remove);
 
   // для элементов назначаем классы
-  divElem1.classList.add('outputTask__list-item-block1');
-  spanElem1.classList.add('outputTask__list-item-block1-text');
-  inputElem1.classList.add('outputTask__list-item-block1-checkbox');
+  divElem1.classList.add('output-task__list-item-block1');
+  spanElem1.classList.add('output-task__list-item-block1-text');
+  inputElem1.classList.add('output-task__list-item-block1-checkbox');
   //
-  divElem2.classList.add('outputTask__list-item-block2');
-  spanElem2.classList.add('outputTask__list-item-block2-date');
-  spanElem3.classList.add('outputTask__list-item-block2-remove');
+  divElem2.classList.add('output-task__list-item-block2');
+  spanElem2.classList.add('output-task__list-item-block2-date');
+  spanElem3.classList.add('output-task__list-item-block2-remove');
 
   // добавляем атрибут для тега <input>
   inputElem1.setAttribute('type', 'checkbox');
@@ -134,7 +134,7 @@ export function displayLocalStorageData() {
     const dataset = returnAnObjectWithDataFromLocalStorage();
     // получим HTMLCollection элементов <li> списка <ul>
     const liCollection = document.getElementsByClassName(
-      'outputTask__list-item',
+      'output-task__list-item',
     );
     /* Если во время редактирования страницы, перезагрузить страницу,
        то поле (editing:true) так и останется в таком состоянии и в дальнейшем
@@ -183,7 +183,7 @@ export function removeClassFromElement(element, className) {
 // обновить видимость кнопки удаления элементов
 export function updateTheVisibilityOfTheDeleteItemsButton(indicator) {
   // ___Считываем button для удаления элементов с отмеченными флажками
-  const buttonDeletingItemsWithCheckboxes = document.querySelector('.enteringTask__buttons-itemClearing');
+  const buttonDeletingItemsWithCheckboxes = document.querySelector('.entering-task__button-clearing');
   if (indicator > 0) {
     // вызываем функцию чтобы удалить класс у элемента
     removeClassFromElement(buttonDeletingItemsWithCheckboxes, 'dn');

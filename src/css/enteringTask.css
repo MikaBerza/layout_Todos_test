@@ -1,5 +1,5 @@
-/* _____enteringTask */
-.enteringTask__textarea-item {
+/* _____entering-task */
+.entering-task__textarea-item {
   box-sizing: border-box;
   width: 100%;
   height: 290px;
@@ -16,26 +16,26 @@
   resize: none;
 }
 
-.enteringTask__textarea-item::placeholder {
+.entering-task__textarea-item::placeholder {
   font-size: 20px;
   font-weight: 200;
   font-style: oblique;
 }
 
-.enteringTask__textarea-item:hover {
+.entering-task__textarea-item:hover {
   background-color: var(--white-color);
 }
 
-.enteringTask__buttons {
+.entering-task__buttons {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
 }
 
 /* кнопка 1(Adding), 2(Mark), 3(Clearing) */
-.enteringTask__buttons-itemAdding,
-.enteringTask__buttons-itemMark,
-.enteringTask__buttons-itemClearing {
+.entering-task__button-adding,
+.entering-task__button-mark,
+.entering-task__button-clearing {
   padding: 10px;
 
   background-color: var(--lightGrey-color);
@@ -44,9 +44,9 @@
 }
 
 /* кнопка 1(Adding), 2(Mark), 3(Clearing) --- hover */
-.enteringTask__buttons-itemAdding:hover,
-.enteringTask__buttons-itemMark:hover,
-.enteringTask__buttons-itemClearing:hover {
+.entering-task__button-adding:hover,
+.entering-task__button-mark:hover,
+.entering-task__button-clearing:hover {
   background-color: var(--mapleGreen-color);
 
   border: 1px solid var(--mapleGreen-color);
@@ -55,15 +55,15 @@
 }
 
 /* кнопка 1(Adding), 2(Mark), 3(Clearing) --- active */
-.enteringTask__buttons-itemAdding:active,
-.enteringTask__buttons-itemMark:active,
-.enteringTask__buttons-itemClearing:active {
+.entering-task__button-adding:active,
+.entering-task__button-mark:active,
+.entering-task__button-clearing:active {
   background-color: var(--emeraldGreen-color);
   border: 1px solid var(--emeraldGreen-color);
 }
 
 /* кнопка 1(Adding) */
-.enteringTask__buttons-itemAdding {
+.entering-task__button-adding {
   width: 65%;
 
   font-weight: 600;
@@ -75,17 +75,17 @@
     font-weight 0.3s ease;
 }
 
-.enteringTask__buttons-itemAdding:hover {
+.entering-task__button-adding:hover {
   font-weight: 700;
   color: var(--white-color);
 }
 
-.enteringTask__buttons-itemAdding:active {
+.entering-task__button-adding:active {
   color: var(--lightGrey-color);
 }
 
 /* кнопка 2(Mark) */
-.enteringTask__buttons-itemMark {
+.entering-task__button-mark {
   width: 15%;
 
   background-image: url('../assets/images/icon_checkbox_b.png');
@@ -98,16 +98,16 @@
     background-color 0.3s ease;
 }
 
-.enteringTask__buttons-itemMark:hover {
+.entering-task__button-mark:hover {
   background-image: url('../assets/images/icon_checkbox_w.png');
 }
 
-.enteringTask__buttons-itemMark:active {
+.entering-task__button-mark:active {
   background-image: url('../assets/images/icon_checkbox_g.png');
 }
 
 /* кнопка 3(Clearing) */
-.enteringTask__buttons-itemClearing {
+.entering-task__button-clearing {
   width: 15%;
 
   background-image: url('../assets/images/icon_clear_b.png');
@@ -120,10 +120,10 @@
     background-color 0.3s ease;
 }
 
-.enteringTask__buttons-itemClearing:hover {
+.entering-task__button-clearing:hover {
   background-image: url('../assets/images/icon_clear_w.png');
 }
 
-.enteringTask__buttons-itemClearing:active {
+.entering-task__button-clearing:active {
   background-image: url('../assets/images/icon_clear_g.png');
 }

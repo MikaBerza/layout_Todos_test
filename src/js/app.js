@@ -19,15 +19,15 @@ import {
 } from './control';
 
 // ___Считываем button для добавления задачи
-const buttonAddElem = document.querySelector('.enteringTask__buttons-itemAdding');
+const buttonAddElem = document.querySelector('.entering-task__button-adding');
 // ___Считываем input для поиска задач
 const inpSearchElem = document.querySelector('.search__item');
 // ___Считываем элемент select выбора активных и завершенных задач
 const selectElem = document.querySelector('.filtering__select');
 // ___Считываем button для установки и снятия всех флажков
-const buttonSetCheckboxes = document.querySelector('.enteringTask__buttons-itemMark');
+const buttonSetCheckboxes = document.querySelector('.entering-task__button-mark');
 // ___Считываем button для удаления элементов с отмеченными флажками
-const buttonDeletingItemsWithCheckboxes = document.querySelector('.enteringTask__buttons-itemClearing');
+const buttonDeletingItemsWithCheckboxes = document.querySelector('.entering-task__button-clearing');
 
 // После срабатывания события "DOMContentLoaded", переданные внутрь функции выполняется
 // Событие DOMContentLoaded происходит, когда браузер разобрал HTML-страницу и составил DOM-дерево
@@ -61,8 +61,8 @@ buttonAddElem.addEventListener('click', () => {
 // событие click возникает каждый раз когда кликнули на элемент <button> левой кнопкой мыши
 buttonSetCheckboxes.addEventListener('click', () => {
   // получим список элементов документа, которые соответствуют указанной группе селекторов
-  const nodeListCheckElem = document.querySelectorAll('.outputTask__list-item-block1-checkbox');
-  const nodeListTaskTextElem = document.querySelectorAll('.outputTask__list-item-block1-text');
+  const nodeListCheckElem = document.querySelectorAll('.output-task__list-item-block1-checkbox');
+  const nodeListTaskTextElem = document.querySelectorAll('.output-task__list-item-block1-text');
   // вызываем функцию для установки или снятия всех флажков
   checkAndTakeOfAllCheckboxes(nodeListCheckElem, nodeListTaskTextElem);
   // вызываем функцию для вычисления активных и завершенных задач
@@ -83,7 +83,7 @@ document.addEventListener('dblclick', (event) => {
   const clickedElement = event.target;
   // метод contains объекта classList проверяет наличие CSS класса у элемента
   // проверим есть ли у элемента по которому мы кликнули нужный нам класс
-  if (clickedElement.classList.contains('outputTask__list-item-block1-text')) {
+  if (clickedElement.classList.contains('output-task__list-item-block1-text')) {
     // если есть, то это нужным нам элемент и мы его запишем
     const taskTextElement = clickedElement;
     // вызываем функцию для редактирования текста задачи
@@ -98,7 +98,7 @@ document.addEventListener('click', (event) => {
 
   // метод contains объекта classList проверяет наличие CSS класса у элемента
   // проверим есть ли у элемента по которому мы кликнули нужный нам класс
-  if (clickedElement.classList.contains('outputTask__list-item-block1-checkbox')) {
+  if (clickedElement.classList.contains('output-task__list-item-block1-checkbox')) {
     // если есть, то это нужным нам элемент и мы его запишем
     const checkboxElement = clickedElement;
     // вызываем функцию для изменения checkbox и класса у элемента списка задач
@@ -119,7 +119,7 @@ document.addEventListener('click', (event) => {
   const clickedElement = event.target;
   // метод contains объекта classList проверяет наличие CSS класса у элемента
   // проверим есть ли у элемента по которому мы кликнули нужный нам класс
-  if (clickedElement.classList.contains('outputTask__list-item-block2-remove')) {
+  if (clickedElement.classList.contains('output-task__list-item-block2-remove')) {
     // если есть, то это нужным нам элемент и мы его запишем
     const crossElement = clickedElement;
     // вызываем функцию для удаления элемента из списка задач

@@ -10,13 +10,13 @@ export function editTheTaskText(taskTextElement) {
   // проверим строку с данными из localStorage на null (отсутствие значения)
   if (checkLocalStorageForNull() !== null) {
     // ___Считываем <button> для добавления задачи
-    const buttonElem = document.querySelector('.enteringTask__buttons-itemAdding');
+    const buttonElem = document.querySelector('.entering-task__button-adding');
     // ___Считываем button для установки и снятия всех флажков
-    const buttonSetCheckboxes = document.querySelector('.enteringTask__buttons-itemMark');
+    const buttonSetCheckboxes = document.querySelector('.entering-task__button-mark');
     // ___Считываем button для удаления элементов с отмеченными флажками
-    const buttonDeletingItemsWithCheckboxes = document.querySelector('.enteringTask__buttons-itemClearing');
+    const buttonDeletingItemsWithCheckboxes = document.querySelector('.entering-task__button-clearing');
     // ___Считываем элемент <textarea>
-    const textareaElem = document.querySelector('.enteringTask__textarea-item');
+    const textareaElem = document.querySelector('.entering-task__textarea-item');
 
     // запишем возвращенный объект с данными из localStorage в константу
     const dataset = returnAnObjectWithDataFromLocalStorage();
