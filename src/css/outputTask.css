@@ -1,11 +1,13 @@
 /* _____outputTask */
 .outputTask__list {
+  overflow: auto;
+
   min-height: 0px;
   max-height: 320px;
   margin: 0;
   padding: 0;
+
   border-radius: 10px;
-  overflow: auto;
 }
 
 .outputTask__list-item {
@@ -13,10 +15,11 @@
   margin: 0px;
   margin-right: auto;
   padding: 6px;
-  border-radius: 8px;
-  border: 1px solid var(--lightGrey2-color);
-  background-color: var(--lightGrey2-color);
   opacity: 0.8;
+
+  background-color: var(--lightGrey2-color);
+  border: 1px solid var(--lightGrey2-color);
+  border-radius: 8px;
 }
 
 /* выбрать все элементы кроме первого */
@@ -34,12 +37,13 @@
 .outputTask__list-item-block1-text {
   /* заданная ширина блока */
   max-width: 96%;
+
+  font-size: 16px;
+  font-weight: 500;
   /*автоматический перенос текста, чтобы текс 
     поместился в заданную ширину блока*/
   word-wrap: break-word;
   color: var(--black-color);
-  font-size: 16px;
-  font-weight: 500;
 }
 
 .outputTask__list-item-block1-checkbox[type=checkbox] {
@@ -50,12 +54,15 @@
 }
 
 .outputTask__list-item-block2-date {
-  margin-top: 10px;
-  color: var(--black-color);
-  font-size: 13px;
-  font-weight: 600;
   display: flex;
   justify-content: left;
+
+  margin-top: 10px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: var(--black-color);
 }
 
 .outputTask__list-item-block2-remove {
@@ -64,10 +71,12 @@
 
 /* при наведении на элемент <li> меняем стиль для элемента <span> */
 .outputTask__list-item:hover .outputTask__list-item-block2-remove {
-  color: var(--tomato-color);
-  font-size: 18px;
-  font-weight: 900;
   display: flex;
   justify-content: right;
+
+  font-size: 18px;
+  font-weight: 900;
+
+  color: var(--tomato-color);
   cursor: pointer;
 }

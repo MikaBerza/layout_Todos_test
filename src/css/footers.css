@@ -8,10 +8,11 @@
 }
 
 .footers__link {
-  align-items: center;
-  margin: auto;
   display: flex;
+  align-items: center;
   justify-content: space-between;
+
+  margin: auto;
 }
 
 .footers__link-text {
@@ -35,9 +36,9 @@
 }
 
 .footers__link-socialNetwork-block-item {
+  color: var(--tomato-color);
   /* начальное значение */
   border-bottom: 1px solid transparent;
-  color: var(--tomato-color);
   transition: border-bottom 0.3s ease;
 }
 
@@ -48,6 +49,6 @@
 }
 
 .footers__link-socialNetwork-block-icon {
-  vertical-align: sub;
   margin-right: 6px;
+  vertical-align: sub;
 }

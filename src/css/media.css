@@ -56,7 +56,8 @@
 
   .footers__link-socialNetwork-block {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
+
   }
 }

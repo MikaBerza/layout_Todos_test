@@ -3,11 +3,12 @@
 .search__item {
   width: 100%;
   height: auto;
-  border-radius: 8px 8px 0 0;
+
+  background-color: var(--lightGrey2-color);
   border: 1px solid var(--lightGrey2-color);
+  border-radius: 8px 8px 0 0;
   /* убираем жирный бордер при клике */
   outline: none;
-  background-color: var(--lightGrey2-color);
   transition: background-color 0.3s ease;
 }
 
@@ -24,14 +25,15 @@
 
 /* ___counters */
 .counters {
-  background-color: var(--lightGrey2-color);
   display: flex;
   flex-direction: column;
+
+  background-color: var(--lightGrey2-color);
 }
 
 .counters__tasks {
-  padding: 6px 6px 0 6px;
   display: flex;
+  padding: 6px 6px 0 6px;
 }
 
 .counters__tasks span:not(:last-child) {
@@ -47,11 +49,12 @@
 
 /* ___filtering */
 .filtering {
-  border: 1px solid var(--lightGrey2-color);
-  border-radius: 0 0 8px 8px;
-  background-color: var(--lightGrey2-color);
   display: flex;
   flex-direction: column;
+
+  background-color: var(--lightGrey2-color);
+  border: 1px solid var(--lightGrey2-color);
+  border-radius: 0 0 8px 8px;
 }
 
 .filtering__text {
@@ -61,12 +64,14 @@
 .filtering__select {
   /* чтобы текст не залезал на стрелку для развертывания списка */
   padding-right: 25px;
+
+  color: var(--dimgray-color);
+  background-color: var(--lightGrey2-color);
   border: 1px solid var(--lightGrey2-color);
   border-radius: 0px 0px 8px 8px;
+
   /* убираем жирный бордер при клике */
   outline: none;
-  background-color: var(--lightGrey2-color);
-  color: var(--dimgray-color);
   /* уберем стрелку у select */
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -80,22 +85,23 @@
 }
 
 .filtering::after {
-  content: '';
   position: absolute;
-  /* отступ 67% от верхней границе*/
   top: 67%;
-  /* отступ справа от границе*/
   right: 8px;
-  height: 15px;
+
   width: 15px;
+  height: 15px;
+
   background-image: url('../../dist/images/VectorDown.svg');
-  background-size: 100%;
   background-repeat: no-repeat;
+  background-size: 100%;
+
   /* Свойство pointer-events определяет, 
   как HTML-элемент реагирует на различные события мыши,
   т.е. мы делаем элемент прозрачным для клика и 
   клик происходит как бы за этим элементов */
   pointer-events: none;
+  content: '';
 }
 
 .filtering__select:hover {
@@ -103,6 +109,6 @@
 }
 
 .filtering__select:active {
-  border: 1px solid var(--lightGrey2-color);
   box-shadow: 0 0 10px var(--lightGrey2-color);
+  border: 1px solid var(--lightGrey2-color);
 }

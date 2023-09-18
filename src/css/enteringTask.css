@@ -4,14 +4,16 @@
   width: 100%;
   height: 290px;
   padding: 6px;
+
+  background-color: var(--lightGrey2-color);
   border: 1px solid var(--lightGrey2-color);
   border-radius: 8px;
   /* убираем жирный бордер при клике */
   outline: none;
-  background-color: var(--lightGrey2-color);
+
+  transition: background-color 0.3s ease;
   /* запрещаем растягивание */
   resize: none;
-  transition: background-color 0.3s ease;
 }
 
 .enteringTask__textarea-item::placeholder {
@@ -25,9 +27,9 @@
 }
 
 .enteringTask__buttons {
-  margin-top: 10px;
   display: flex;
   justify-content: space-between;
+  margin-top: 10px;
 }
 
 /* кнопка 1(Adding), 2(Mark), 3(Clearing) */
@@ -35,17 +37,19 @@
 .enteringTask__buttons-itemMark,
 .enteringTask__buttons-itemClearing {
   padding: 10px;
+
+  background-color: var(--lightGrey-color);
   border: 1px solid var(--lightGrey-color);
   border-radius: 8px;
-  background-color: var(--lightGrey-color);
 }
 
 /* кнопка 1(Adding), 2(Mark), 3(Clearing) --- hover */
 .enteringTask__buttons-itemAdding:hover,
 .enteringTask__buttons-itemMark:hover,
 .enteringTask__buttons-itemClearing:hover {
-  border: 1px solid var(--mapleGreen-color);
   background-color: var(--mapleGreen-color);
+
+  border: 1px solid var(--mapleGreen-color);
   /*форма курсора мыши*/
   cursor: pointer;
 }
@@ -54,15 +58,16 @@
 .enteringTask__buttons-itemAdding:active,
 .enteringTask__buttons-itemMark:active,
 .enteringTask__buttons-itemClearing:active {
-  border: 1px solid var(--emeraldGreen-color);
   background-color: var(--emeraldGreen-color);
+  border: 1px solid var(--emeraldGreen-color);
 }
 
 /* кнопка 1(Adding) */
 .enteringTask__buttons-itemAdding {
   width: 65%;
-  color: var(--black-color);
+
   font-weight: 600;
+  color: var(--black-color);
   transition:
     border 0.3s ease,
     background-color 0.3s ease,
@@ -71,8 +76,8 @@
 }
 
 .enteringTask__buttons-itemAdding:hover {
-  color: var(--white-color);
   font-weight: 700;
+  color: var(--white-color);
 }
 
 .enteringTask__buttons-itemAdding:active {
@@ -82,10 +87,12 @@
 /* кнопка 2(Mark) */
 .enteringTask__buttons-itemMark {
   width: 15%;
+
   background-image: url('../assets/images/icon_checkbox_b.png');
+  background-repeat: no-repeat;
   background-position: center;
   background-size: 25px 25px;
-  background-repeat: no-repeat;
+
   transition:
     border 0.3s ease,
     background-color 0.3s ease;
@@ -102,10 +109,12 @@
 /* кнопка 3(Clearing) */
 .enteringTask__buttons-itemClearing {
   width: 15%;
-  background-position: center;
+
   background-image: url('../assets/images/icon_clear_b.png');
-  background-size: 25px 25px;
   background-repeat: no-repeat;
+  background-position: center;
+  background-size: 25px 25px;
+  
   transition:
     border 0.3s ease,
     background-color 0.3s ease;

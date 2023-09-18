@@ -1,23 +1,26 @@
 .mainContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
   height: auto;
   padding: 20px 10px;
-  border: 4px solid var(--darkAzure-color);
-  border-radius: 20px;
+  opacity: 0.8;
+
   background-image: url('../assets/images/1.51bird.svg');
   background-repeat: no-repeat;
   background-size: 170%;
-  opacity: 0.8;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  border: 4px solid var(--darkAzure-color);
+  border-radius: 20px;
 }
 
 .control,
 .enteringTask,
 .outputTask {
+  align-self: stretch;
+
   width: 478px;
   padding: 0px 10px;
-  align-self: stretch;
 }
 
 /* полоса прокрутки */
@@ -30,29 +33,28 @@
 /* полоса прокрутки (трек) */
 .enteringTask__textarea-item::-webkit-scrollbar-track,
 .outputTask__list::-webkit-scrollbar-track {
-  /* цвет дорожки */
+  background-color: var(--lightGrey2-color);
   border: 1px solid var(--lightGrey2-color);
   border-radius: 8px;
-  background-color: var(--lightGrey2-color);
 }
 
 /* полоса прокрутки (ползунок) */
 .enteringTask__textarea-item::-webkit-scrollbar-thumb,
 .outputTask__list::-webkit-scrollbar-thumb {
+  background-color: var(--lightGrey-color);
   border: 1px solid var(--lightGrey-color);
   border-radius: 8px;
-  background-color: var(--lightGrey-color);
 }
 
 .enteringTask__textarea-item::-webkit-scrollbar-thumb:hover,
 .outputTask__list::-webkit-scrollbar-thumb:hover {
-  border: 1px solid var(--mapleGreen-color);
   background-color: var(--mapleGreen-color);
+  border: 1px solid var(--mapleGreen-color);
   cursor: pointer;
 }
 
 .enteringTask__textarea-item::-webkit-scrollbar-thumb:active,
 .outputTask__list::-webkit-scrollbar-thumb:active {
-  border: 1px solid var(--emeraldGreen-color);
   background-color: var(--emeraldGreen-color);
+  border: 1px solid var(--emeraldGreen-color);
 }
