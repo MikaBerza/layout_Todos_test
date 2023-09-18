@@ -3,52 +3,49 @@
 }
 
 .footers__container {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-.footers__link {
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   margin: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
-.footers__link-text {
+.footers__text {
   max-width: 222px;
   color: var(--tomato-color);
 }
 
-.footers__link-text,
-.footers__link-socialNetwork-block-item {
+.footers__text,
+.footers__link-name {
   font-size: 20px;
   font-weight: 400;
   line-height: 142%;
 }
 
-.footers__link-socialNetwork {
+.footers__link {
   display: flex;
 }
 
-.footers__link-socialNetwork-block:not(:last-child) {
+.footers__link-item:not(:last-child) {
   margin-right: 26px;
 }
 
-.footers__link-socialNetwork-block-item {
+.footers__link-name {
   color: var(--tomato-color);
   /* начальное значение */
   border-bottom: 1px solid transparent;
   transition: border-bottom 0.3s ease;
 }
 
-.footers__link-socialNetwork-block-item:hover {
+.footers__link-name:hover {
   /* измененное значение */
   border-bottom: 1px solid var(--tomato-color);
   cursor: pointer;
 }
 
-.footers__link-socialNetwork-block-icon {
+.footers__icon {
   margin-right: 6px;
   vertical-align: sub;
 }

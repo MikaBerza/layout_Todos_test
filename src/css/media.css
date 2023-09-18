@@ -42,19 +42,16 @@
   }
 
   .footers__container {
+    justify-content: center;
     padding-top: 0px;
     padding-bottom: 0px;
   }
 
-  .footers__link {
-    justify-content: center;
-  }
-
-  .footers__link-text {
+  .footers__text {
     display: none;
   }
 
-  .footers__link-socialNetwork-block {
+  .footers__link-item {
     display: flex;
     align-items: center;
     flex-direction: column;
