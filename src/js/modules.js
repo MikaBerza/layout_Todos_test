@@ -19,7 +19,7 @@ export function checkLocalStorageForNull() {
 // функция записывает данные в localStorage
 export function writeToLocalStorage(dataset, objEnteredData) {
   // добавим объект с введенными данными в набор данных
-  dataset.push(objEnteredData);
+  dataset.unshift(objEnteredData);
   // преобразует значение JS в строку JSON
   const strDataset = JSON.stringify(dataset);
   // добавляем набор данных в localStorage
@@ -123,7 +123,7 @@ export function createTaskListItems(date, remove, tick, note, id) {
   liElem.appendChild(divElem1);
   liElem.appendChild(divElem2);
   // Во внутрь тега <ul> вставляем тег <li>
-  ulElem.appendChild(liElem);
+  ulElem.prepend(liElem);
 }
 
 // функция выводит (отображает) данные из локального хранилища в виде списка задач
