@@ -1,3 +1,8 @@
+// импортируем значки веб-сайта (fav_icons_bird)
+import '../assets/images/fav_icons_bird/apple-touch-icon.png';
+import '../assets/images/fav_icons_bird/favicon-32x32.png';
+import '../assets/images/fav_icons_bird/favicon-16x16.png';
+import '../assets/images/fav_icons_bird/safari-pinned-tab.svg';
 // импортируем изображения
 import '../assets/images/1.51bird.svg';
 import '../assets/images/VectorDown.svg';
