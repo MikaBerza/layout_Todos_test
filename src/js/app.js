@@ -2,6 +2,7 @@ import {
   displayLocalStorageData,
   searchForGrandchildElementWithTaskText,
 } from './modules';
+
 import {
   addTaskToTheList,
   returnAnOldTask,
@@ -32,20 +33,13 @@ const selectElem = document.querySelector('.filtering__select');
 const buttonSetCheckboxes = document.querySelector('.entering-task__button-mark');
 // ___Считываем button для удаления элементов с отмеченными флажками
 const buttonDeletingItemsWithCheckboxes = document.querySelector('.entering-task__button-clearing');
-// ___Считываем textarea
+// ___Считываем элемент textarea
 const textareaElem = document.querySelector('.entering-task__textarea-item');
+// ___Считываем элемент ul списка задач
+const ulElem = document.querySelector('.output-task__list');
 
-// После срабатывания события "DOMContentLoaded", переданные внутрь функции выполняется
-// Событие DOMContentLoaded происходит, когда браузер разобрал HTML-страницу и составил DOM-дерево
-document.addEventListener('DOMContentLoaded', () => {
-  // вызовем функцию для вывода (отображения) существующего список задач из локального хранилища
-  displayLocalStorageData();
-  // вызываем функцию для вычисления активных и завершенных задач
-  calcActiveAndCompletedTasks();
-});
-
-// обрабатывать добавление или редактирование текста щелчком мыши и нажатием клавиши
-const handleAddOrEditTextOnClickAndKeydown = () => {
+// функция обрабатывать добавление или редактирование текста щелчком мыши и нажатием клавиши
+function handleAddOrEditTextOnClickAndKeydown() {
   if (buttonAddElem.textContent === 'Добавить') {
     // вызываем функцию для добавления задачи в список задач
     addTaskToTheList();
@@ -61,7 +55,17 @@ const handleAddOrEditTextOnClickAndKeydown = () => {
     // вызываем функцию для вычисления активных и завершенных задач
     calcActiveAndCompletedTasks();
   }
-};
+}
+
+// После срабатывания события "DOMContentLoaded", переданные внутрь функции выполняется
+// Событие DOMContentLoaded происходит, когда браузер разобрал HTML-страницу и составил DOM-дерево
+document.addEventListener('DOMContentLoaded', () => {
+  // вызовем функцию для вывода (отображения) существующего список задач из локального хранилища
+  displayLocalStorageData();
+  // вызываем функцию для вычисления активных и завершенных задач
+  calcActiveAndCompletedTasks();
+});
+
 // добавление или редактирование текста щелчком мыши и нажатием клавиши Enter
 buttonAddElem.addEventListener('click', handleAddOrEditTextOnClickAndKeydown);
 textareaElem.addEventListener('keydown', (event) => {
@@ -84,7 +88,7 @@ textareaElem.addEventListener('keydown', (event) => {
 });
 
 // после срабатывания события "dblclick" по тексту задачи, переданные внутрь функции выполняется
-document.addEventListener('dblclick', (event) => {
+ulElem.addEventListener('dblclick', (event) => {
   // получим элемент по которому сделали клик
   const clickedElement = event.target;
   // найденный элемент
@@ -119,17 +123,13 @@ buttonDeletingItemsWithCheckboxes.addEventListener('click', () => {
 document.addEventListener('click', (event) => {
   // получим элемент по которому сделали клик
   const clickedElement = event.target;
-
   // метод contains объекта classList проверяет наличие CSS класса у элемента
   // проверим есть ли у элемента по которому мы кликнули нужный нам класс
   if (clickedElement.classList.contains('output-task__list-item-block1-checkbox')) {
-    // если есть, то это нужным нам элемент и мы его запишем
-    const checkboxElement = clickedElement;
     // вызываем функцию для изменения checkbox и класса у элемента списка задач
-    changeCheckboxAndClassOfTaskListItem(checkboxElement);
+    changeCheckboxAndClassOfTaskListItem(clickedElement);
     // вызываем функцию для вычисления активных и завершенных задач
     calcActiveAndCompletedTasks();
-
     // получим текст выбранного пункта списка
     const textOfTheSelectedItem = selectElem.value;
     // вызываем функцию для получения отфильтрованных элементов в списке задач
@@ -144,10 +144,8 @@ document.addEventListener('click', (event) => {
   // метод contains объекта classList проверяет наличие CSS класса у элемента
   // проверим есть ли у элемента по которому мы кликнули нужный нам класс
   if (clickedElement.classList.contains('output-task__list-item-block2-remove')) {
-    // если есть, то это нужным нам элемент и мы его запишем
-    const crossElement = clickedElement;
     // вызываем функцию для удаления элемента из списка задач
-    removeFromTheTaskList(crossElement);
+    removeFromTheTaskList(clickedElement);
     // вызываем функцию для вычисления активных и завершенных задач
     calcActiveAndCompletedTasks();
   }
