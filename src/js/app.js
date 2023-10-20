@@ -39,6 +39,21 @@ document.addEventListener('DOMContentLoaded', () => {
   displayLocalStorageData();
   // вызываем функцию для вычисления активных и завершенных задач
   calcActiveAndCompletedTasks();
+
+  // обрабатываем событие двойного нажатия на элемент <li> для входа в режим редактирования
+  const listItem = document.querySelectorAll('.output-task__list-item');
+  for (let i = 0; i < listItem.length; i += 1) {
+    // навешиваем на каждый элемент обработчик события
+    // после срабатывания события "dblclick", переданные внутрь функции выполняется
+    listItem[i].addEventListener('dblclick', (event) => {
+      // получим элемент по которому сделали клик
+      const clickedElement = event.currentTarget;
+      // получим элемент с текстом задачи
+      const listItemText = clickedElement.closest('.output-task__list-item').querySelector('.output-task__list-item-block1-text');
+      // вызываем функцию для редактирования текста задачи
+      editTheTaskText(listItemText);
+    });
+  }
 });
 
 // обрабатывать добавление или редактирование текста щелчком мыши и нажатием клавиши
@@ -97,20 +112,6 @@ buttonDeletingItemsWithCheckboxes.addEventListener('click', () => {
   deletingItemsWithCheckboxes();
   // вызываем функцию для вычисления активных и завершенных задач
   calcActiveAndCompletedTasks();
-});
-
-// после срабатывания события "dblclick" по тексту задачи, переданные внутрь функции выполняется
-document.addEventListener('dblclick', (event) => {
-  // получим элемент по которому сделали клик
-  const clickedElement = event.target;
-  // метод contains объекта classList проверяет наличие CSS класса у элемента
-  // проверим есть ли у элемента по которому мы кликнули нужный нам класс
-  if (clickedElement.classList.contains('output-task__list-item-block1-text')) {
-    // если есть, то это нужным нам элемент и мы его запишем
-    const taskTextElement = clickedElement;
-    // вызываем функцию для редактирования текста задачи
-    editTheTaskText(taskTextElement);
-  }
 });
 
 // после срабатывания события "click" по элементу checkbox, переданные внутрь функции выполняется
