@@ -75,6 +75,8 @@ textareaElem.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && buttonAddElem.textContent === 'Редактировать') {
     // вызываем функцию для возвращения старой задачи
     returnAnOldTask();
+    // вызываем функцию для вычисления активных и завершенных задач
+    calcActiveAndCompletedTasks();
   }
 });
 
