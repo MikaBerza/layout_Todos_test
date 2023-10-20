@@ -2,11 +2,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-
   height: auto;
   padding: 20px 10px;
   opacity: 0.8;
-
   background-image: url('../assets/images/1.51bird.svg');
   background-repeat: no-repeat;
   background-size: 170%;
@@ -18,19 +16,15 @@
 .entering-task,
 .output-task {
   align-self: stretch;
-
   width: 478px;
   padding: 0px 10px;
 }
 
-/* полоса прокрутки */
 .entering-task__textarea-item::-webkit-scrollbar,
 .output-task__list::-webkit-scrollbar {
-  /* ширина scrollbar */
   width: 12px;
 }
 
-/* полоса прокрутки (трек) */
 .entering-task__textarea-item::-webkit-scrollbar-track,
 .output-task__list::-webkit-scrollbar-track {
   background-color: var(--lightGrey2-color);
@@ -38,7 +32,6 @@
   border-radius: 8px;
 }
 
-/* полоса прокрутки (ползунок) */
 .entering-task__textarea-item::-webkit-scrollbar-thumb,
 .output-task__list::-webkit-scrollbar-thumb {
   background-color: var(--lightGrey-color);

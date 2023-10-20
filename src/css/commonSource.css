@@ -16,18 +16,15 @@ body {
   background-color: var(--beige100-color);
 }
 
-/* Отменяет маркеры для списка */
 ul {
   list-style-type: none;
 }
 
-/* Отменяет подчеркивание */
 a {
   text-decoration: none;
 }
 
 
-/* внешняя обертка */
 .wrapper {
   font-family: 'Roboto', 'Times New Roman', Times, serif;
   font-size: 18px;
@@ -36,18 +33,15 @@ a {
   color: var(--dimgray-color);
 }
 
-/* размер viewport */
 .w1 {
   max-width: 1120px;
   margin: 10px auto 0px auto;
 }
 
-/* стиль чтобы отметить элемент как завершенный */
 .completed {
   text-decoration: line-through;
 }
 
-/* для скрытия элемента */
 .dn {
   display: none;
 }

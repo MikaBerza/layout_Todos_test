@@ -1,13 +1,9 @@
-/* _____control */
-/* ___search */
 .search__item {
   width: 100%;
   height: auto;
-
   background-color: var(--lightGrey2-color);
   border: 1px solid var(--lightGrey2-color);
   border-radius: 8px 8px 0 0;
-  /* убираем жирный бордер при клике */
   outline: none;
   transition: background-color 0.3s ease;
 }
@@ -23,11 +19,9 @@
   padding: 6px;
 }
 
-/* ___counters */
 .counters {
   display: flex;
   flex-direction: column;
-
   background-color: var(--lightGrey2-color);
 }
 
@@ -47,11 +41,9 @@
   padding-left: 6px;
 }
 
-/* ___filtering */
 .filtering {
   display: flex;
   flex-direction: column;
-
   background-color: var(--lightGrey2-color);
   border: 1px solid var(--lightGrey2-color);
   border-radius: 0 0 8px 8px;
@@ -62,25 +54,18 @@
 }
 
 .filtering__select {
-  /* чтобы текст не залезал на стрелку для развертывания списка */
   padding-right: 25px;
-
   color: var(--dimgray-color);
   background-color: var(--lightGrey2-color);
   border: 1px solid var(--lightGrey2-color);
   border-radius: 0px 0px 8px 8px;
-
-  /* убираем жирный бордер при клике */
   outline: none;
-  /* уберем стрелку у select */
   -webkit-appearance: none;
   -moz-appearance: none;
-  /* appearance: none для сброса системных стилей */
   appearance: none;
 }
 
 .filtering {
-  /* чтобы стрелка оказалась в границах select */
   position: relative;
 }
 
@@ -88,18 +73,11 @@
   position: absolute;
   top: 67%;
   right: 8px;
-
   width: 15px;
   height: 15px;
-
   background-image: url('../../dist/images/VectorDown.svg');
   background-repeat: no-repeat;
   background-size: 100%;
-
-  /* Свойство pointer-events определяет, 
-  как HTML-элемент реагирует на различные события мыши,
-  т.е. мы делаем элемент прозрачным для клика и 
-  клик происходит как бы за этим элементов */
   pointer-events: none;
   content: '';
 }

@@ -34,13 +34,11 @@
 
 .footers__link-name {
   color: var(--tomato-color);
-  /* начальное значение */
   border-bottom: 1px solid transparent;
   transition: border-bottom 0.3s ease;
 }
 
 .footers__link-name:hover {
-  /* измененное значение */
   border-bottom: 1px solid var(--tomato-color);
   cursor: pointer;
 }
