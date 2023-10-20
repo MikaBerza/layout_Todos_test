@@ -30,7 +30,7 @@
 .entering-task__button-adding,
 .entering-task__button-mark,
 .entering-task__button-clearing {
-  width: 33%;
+  width: 30%;
   padding: 10px;
   font-weight: 400;
   color: var(--black-color);
