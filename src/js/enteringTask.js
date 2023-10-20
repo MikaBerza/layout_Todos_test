@@ -84,6 +84,51 @@ export function addTaskToTheList() {
   }
 }
 
+// функция вернуть старую задачу
+export function returnAnOldTask() {
+  // ___Считываем <button> для добавления задачи
+  const buttonElem = document.querySelector('.entering-task__button-adding');
+  // ___Считываем button для установки и снятия всех флажков
+  const buttonSetCheckboxes = document.querySelector('.entering-task__button-mark');
+  // ___Считываем button для удаления элементов с отмеченными флажками
+  const buttonDeletingItemsWithCheckboxes = document.querySelector('.entering-task__button-clearing');
+  // ___Считываем элемент <textarea>
+  const textareaElem = document.querySelector('.entering-task__textarea-item');
+  // запишем возвращенный объект с данными из localStorage в константу
+  const dataset = returnAnObjectWithDataFromLocalStorage();
+
+  dataset.forEach((item, index) => {
+    if (item.editing === true) {
+      // изменяем название кнопки
+      buttonElem.textContent = 'Добавить';
+      // создаем новый объект на основе параметра
+      const newItem = { ...item };
+      // присваиваем новое значение
+      newItem.editing = false;
+      // заменяем элемент в массиве
+      dataset[index] = newItem;
+      // преобразует значение JS в строку JSON
+      const strDataset = JSON.stringify(dataset);
+      // добавляем набор данных в localStorage
+      window.localStorage.setItem('keyDataset', strDataset);
+
+      // получим id элемента <li>
+      const idElem = item.id;
+      // получим элемент <li> зная id элемента
+      const liElem = document.querySelector(`[data-id="${idElem}"]`);
+      // получим родителя элемент <ul>
+      const ulElem = liElem.parentElement;
+
+      // вызываем функцию чтобы удалить класс у элемента
+      removeClassFromElement(ulElem, 'dn');
+      removeClassFromElement(buttonSetCheckboxes, 'dn');
+      removeClassFromElement(buttonDeletingItemsWithCheckboxes, 'dn');
+      // После редактирования записи, очищаем поле для ввода
+      textareaElem.value = '';
+    }
+  });
+}
+
 // функция заменить задачу в списке задач при редактировании
 export function replaceTaskToTheListWhenEditing() {
   // ___Считываем <button> для добавления задачи

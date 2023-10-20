@@ -1,20 +1,21 @@
 import { displayLocalStorageData } from './modules';
 import {
   addTaskToTheList,
+  returnAnOldTask,
   replaceTaskToTheListWhenEditing,
   checkAndTakeOfAllCheckboxes,
   deletingItemsWithCheckboxes,
 } from './enteringTask';
 
 import {
+  editTheTaskText,
   changeCheckboxAndClassOfTaskListItem,
   removeFromTheTaskList,
-  editTheTaskText,
 } from './outputTask';
 
 import {
-  calcActiveAndCompletedTasks,
   searchForItemsInTheList,
+  calcActiveAndCompletedTasks,
   getFilteredItems,
 } from './control';
 
@@ -58,6 +59,7 @@ const handleAddOrEditTextOnClickAndKeydown = () => {
     calcActiveAndCompletedTasks();
   }
 };
+// добавление или редактирование текста щелчком мыши и нажатием клавиши Enter
 buttonAddElem.addEventListener('click', handleAddOrEditTextOnClickAndKeydown);
 textareaElem.addEventListener('keydown', (event) => {
   if (event.key === 'Enter' && textareaElem.value.trim().length !== 0) {
@@ -65,6 +67,14 @@ textareaElem.addEventListener('keydown', (event) => {
     // отменяем действие по умолчанию для события keydown,
     // тем самым поле textarea возвращается в исходное положение, а не висит в ожидании ввода текста
     event.preventDefault();
+  }
+});
+
+// выход из режима редактирования задачи нажатием клавиши Escape
+textareaElem.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && buttonAddElem.textContent === 'Редактировать') {
+    // вызываем функцию для возвращения старой задачи
+    returnAnOldTask();
   }
 });
 
