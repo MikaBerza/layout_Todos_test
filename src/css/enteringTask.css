@@ -4,15 +4,11 @@
   width: 100%;
   height: 290px;
   padding: 6px;
-
   background-color: var(--lightGrey2-color);
   border: 1px solid var(--lightGrey2-color);
   border-radius: 8px;
-  /* убираем жирный бордер при клике */
   outline: none;
-
   transition: background-color 0.3s ease;
-  /* запрещаем растягивание */
   resize: none;
 }
 
@@ -32,98 +28,37 @@
   margin-top: 10px;
 }
 
-/* кнопка 1(Adding), 2(Mark), 3(Clearing) */
 .entering-task__button-adding,
 .entering-task__button-mark,
 .entering-task__button-clearing {
+  width: 33%;
   padding: 10px;
-
+  font-weight: 400;
+  color: var(--black-color);
   background-color: var(--lightGrey-color);
   border: 1px solid var(--lightGrey-color);
   border-radius: 8px;
+  transition:
+    font-weight 0.3s ease,
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border 0.3s ease;
 }
 
-/* кнопка 1(Adding), 2(Mark), 3(Clearing) --- hover */
 .entering-task__button-adding:hover,
 .entering-task__button-mark:hover,
 .entering-task__button-clearing:hover {
+  font-weight: 700;
+  color: var(--white-color);
   background-color: var(--mapleGreen-color);
-
   border: 1px solid var(--mapleGreen-color);
-  /*форма курсора мыши*/
   cursor: pointer;
 }
 
-/* кнопка 1(Adding), 2(Mark), 3(Clearing) --- active */
 .entering-task__button-adding:active,
 .entering-task__button-mark:active,
 .entering-task__button-clearing:active {
+  color: var(--lightGrey-color);
   background-color: var(--emeraldGreen-color);
   border: 1px solid var(--emeraldGreen-color);
-}
-
-/* кнопка 1(Adding) */
-.entering-task__button-adding {
-  width: 65%;
-
-  font-weight: 600;
-  color: var(--black-color);
-  transition:
-    border 0.3s ease,
-    background-color 0.3s ease,
-    color 0.3s ease,
-    font-weight 0.3s ease;
-}
-
-.entering-task__button-adding:hover {
-  font-weight: 700;
-  color: var(--white-color);
-}
-
-.entering-task__button-adding:active {
-  color: var(--lightGrey-color);
-}
-
-/* кнопка 2(Mark) */
-.entering-task__button-mark {
-  width: 15%;
-
-  background-image: url('../assets/images/icon_checkbox_b.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 25px 25px;
-
-  transition:
-    border 0.3s ease,
-    background-color 0.3s ease;
-}
-
-.entering-task__button-mark:hover {
-  background-image: url('../assets/images/icon_checkbox_w.png');
-}
-
-.entering-task__button-mark:active {
-  background-image: url('../assets/images/icon_checkbox_g.png');
-}
-
-/* кнопка 3(Clearing) */
-.entering-task__button-clearing {
-  width: 15%;
-
-  background-image: url('../assets/images/icon_clear_b.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 25px 25px;
-  
-  transition:
-    border 0.3s ease,
-    background-color 0.3s ease;
-}
-
-.entering-task__button-clearing:hover {
-  background-image: url('../assets/images/icon_clear_w.png');
-}
-
-.entering-task__button-clearing:active {
-  background-image: url('../assets/images/icon_clear_g.png');
 }
