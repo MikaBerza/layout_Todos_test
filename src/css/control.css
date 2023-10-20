@@ -35,10 +35,21 @@
 }
 
 .counters__indicator {
-  width: 100%;
+  position: relative;
+  width: 70%;
   height: 40px;
   padding-right: 6px;
   padding-left: 6px;
+  text-align: end;
+}
+
+.counters__indicator::after {
+  position: absolute;
+  top: 26%;
+  width: 30%;
+  padding-right: 6px;
+  padding-left: 6px;
+  content: 'Индикатор';
 }
 
 .filtering {
