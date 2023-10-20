@@ -1,4 +1,7 @@
-import { displayLocalStorageData } from './modules';
+import {
+  displayLocalStorageData,
+  searchForGrandchildElementWithTaskText,
+} from './modules';
 import {
   addTaskToTheList,
   returnAnOldTask,
@@ -39,21 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
   displayLocalStorageData();
   // вызываем функцию для вычисления активных и завершенных задач
   calcActiveAndCompletedTasks();
-
-  // обрабатываем событие двойного нажатия на элемент <li> для входа в режим редактирования
-  const listItem = document.querySelectorAll('.output-task__list-item');
-  for (let i = 0; i < listItem.length; i += 1) {
-    // навешиваем на каждый элемент обработчик события
-    // после срабатывания события "dblclick", переданные внутрь функции выполняется
-    listItem[i].addEventListener('dblclick', (event) => {
-      // получим элемент по которому сделали клик
-      const clickedElement = event.currentTarget;
-      // получим элемент с текстом задачи
-      const listItemText = clickedElement.closest('.output-task__list-item').querySelector('.output-task__list-item-block1-text');
-      // вызываем функцию для редактирования текста задачи
-      editTheTaskText(listItemText);
-    });
-  }
 });
 
 // обрабатывать добавление или редактирование текста щелчком мыши и нажатием клавиши
@@ -92,6 +80,19 @@ textareaElem.addEventListener('keydown', (event) => {
     returnAnOldTask();
     // вызываем функцию для вычисления активных и завершенных задач
     calcActiveAndCompletedTasks();
+  }
+});
+
+// после срабатывания события "dblclick" по тексту задачи, переданные внутрь функции выполняется
+document.addEventListener('dblclick', (event) => {
+  // получим элемент по которому сделали клик
+  const clickedElement = event.target;
+  // найденный элемент
+  const foundElement = searchForGrandchildElementWithTaskText(clickedElement);
+  // если найденный элемент не равен null
+  if (foundElement !== null) {
+    // вызываем функцию для редактирования текста задачи
+    editTheTaskText(foundElement);
   }
 });
 

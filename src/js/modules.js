@@ -180,6 +180,61 @@ export function removeClassFromElement(element, className) {
   element.classList.remove(className);
 }
 
+// функция поиск внучатого элемента с текстом задачи для созданной размети
+export function searchForGrandchildElementWithTaskText(domElement) {
+  // имя класс элемент прародителя
+  const progenitorElementClassName = 'output-task__list-item';
+  // имя класс дочернего элемента block1
+  const childElementBlock1ClassName = 'output-task__list-item-block1';
+  // имя класс дочернего элемента block2
+  const childElementBlock2ClassName = 'output-task__list-item-block2';
+  // имя класса внучатого элемента c текстом
+  const grandchildElementClassNameWithText = 'output-task__list-item-block1-text';
+  // имя класса внучатого элемента c датой
+  const grandchildElementClassNameWithDate = 'output-task__list-item-block2-date';
+  // найденный элемент
+  let foundElement = null;
+
+  // если кликнули во нужному нам элементу с классом (output-task__list-item-block1-text)
+  if (domElement.className === grandchildElementClassNameWithText) {
+    // вызываем функцию для редактирования текста задачи
+    foundElement = domElement;
+    // если кликнули по элементу прародителя с классом (output-task__list-item)
+  } else if (domElement.className === progenitorElementClassName) {
+    // получим первый дочерний элемент
+    const firstChildElem = domElement.firstElementChild;
+    // получим первый внучатый элемент
+    const firstGrandchildElem = firstChildElem.firstElementChild;
+    // вызываем функцию для редактирования текста задачи
+    foundElement = firstGrandchildElem;
+    // если кликнули по элементу родителя с классом (output-task__list-item-block1)
+  } else if (domElement.className === childElementBlock1ClassName) {
+    // получим первый дочерний элемент
+    const firstChildElem = domElement.firstElementChild;
+    // вызываем функцию для редактирования текста задачи
+    foundElement = firstChildElem;
+    // если кликнули по элементу родителя с классом (output-task__list-item-block2)
+  } else if (domElement.className === childElementBlock2ClassName) {
+    // получим предыдущий элемент
+    const previousElem = domElement.previousElementSibling;
+    // получим первый дочерний элемент
+    const firstChildElem = previousElem.firstElementChild;
+    // вызываем функцию для редактирования текста задачи
+    foundElement = firstChildElem;
+    // если кликнули по внучатому жлементу с датой (output-task__list-item-block2-date)
+  } else if (domElement.className === grandchildElementClassNameWithDate) {
+    // получим родительский элемент
+    const parentElem = domElement.parentElement;
+    // получим предыдущий элемент
+    const previousElem = parentElem.previousElementSibling;
+    // получим первый дочерний элемент
+    const firstChildElem = previousElem.firstElementChild;
+    // вызываем функцию для редактирования текста задачи
+    foundElement = firstChildElem;
+  }
+  return foundElement;
+}
+
 // обновить видимость кнопки удаления элементов
 export function updateTheVisibilityOfTheDeleteItemsButton(indicator) {
   // ___Считываем button для удаления элементов с отмеченными флажками
