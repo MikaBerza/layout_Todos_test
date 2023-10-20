@@ -28,6 +28,8 @@ const selectElem = document.querySelector('.filtering__select');
 const buttonSetCheckboxes = document.querySelector('.entering-task__button-mark');
 // ___Считываем button для удаления элементов с отмеченными флажками
 const buttonDeletingItemsWithCheckboxes = document.querySelector('.entering-task__button-clearing');
+// ___Считываем textarea
+const textareaElem = document.querySelector('.entering-task__textarea-item');
 
 // После срабатывания события "DOMContentLoaded", переданные внутрь функции выполняется
 // Событие DOMContentLoaded происходит, когда браузер разобрал HTML-страницу и составил DOM-дерево
@@ -38,14 +40,13 @@ document.addEventListener('DOMContentLoaded', () => {
   calcActiveAndCompletedTasks();
 });
 
-// событие click возникает каждый раз когда кликнули на элемент <button> левой кнопкой мыши
-buttonAddElem.addEventListener('click', () => {
+// обрабатывать добавление или редактирование текста щелчком мыши и нажатием клавиши
+const handleAddOrEditTextOnClickAndKeydown = () => {
   if (buttonAddElem.textContent === 'Добавить') {
     // вызываем функцию для добавления задачи в список задач
     addTaskToTheList();
     // вызываем функцию для вычисления активных и завершенных задач
     calcActiveAndCompletedTasks();
-
     // получим текст выбранного пункта списка
     const textOfTheSelectedItem = selectElem.value;
     // вызываем функцию для получения отфильтрованных элементов в списке задач
@@ -55,6 +56,15 @@ buttonAddElem.addEventListener('click', () => {
     replaceTaskToTheListWhenEditing();
     // вызываем функцию для вычисления активных и завершенных задач
     calcActiveAndCompletedTasks();
+  }
+};
+buttonAddElem.addEventListener('click', handleAddOrEditTextOnClickAndKeydown);
+textareaElem.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter' && textareaElem.value.trim().length !== 0) {
+    handleAddOrEditTextOnClickAndKeydown();
+    // отменяем действие по умолчанию для события keydown,
+    // тем самым поле textarea возвращается в исходное положение, а не висит в ожидании ввода текста
+    event.preventDefault();
   }
 });
 

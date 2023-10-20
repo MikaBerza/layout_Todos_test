@@ -1,6 +1,6 @@
 // функция проверяет длину строки
 export function checkLengthOfTheString(str) {
-  if (str.length > 0) {
+  if (str.trim().length > 0) {
     return true;
   }
   return false;
