@@ -1,6 +1,6 @@
 import {
   displayLocalStorageData,
-  searchForGrandchildElementWithTaskText,
+  searchForElementInsideTheCreatedMarkup,
 } from './modules';
 
 import {
@@ -91,13 +91,36 @@ textareaElem.addEventListener('keydown', (event) => {
 ulElem.addEventListener('dblclick', (event) => {
   // получим элемент по которому сделали клик
   const clickedElement = event.target;
-  // найденный элемент
-  const foundElement = searchForGrandchildElementWithTaskText(clickedElement);
-  // если найденный элемент не равен null
-  if (foundElement !== null) {
+  // найденный элемент (при поиске элемента внутри созданной разметки)
+  const foundElement = searchForElementInsideTheCreatedMarkup(clickedElement);
+  // если найденный элемент c классом (output-task__list-item-block1-text) и не равен null
+  if (foundElement !== null && foundElement.className === 'output-task__list-item-block1-text') {
     // вызываем функцию для редактирования текста задачи
     editTheTaskText(foundElement);
   }
+});
+
+// после срабатывания события "click" по элементу checkbox или "Х", функции выполняется
+ulElem.addEventListener('click', (event) => {
+  // получим элемент по которому сделали клик
+  const clickedElement = event.target;
+  // найденный элемент (при поиске элемента внутри созданной разметки)
+  const foundElement = searchForElementInsideTheCreatedMarkup(clickedElement);
+  // если найденный элемент c классом (output-task__list-item-block1-checkbox) и не равен null
+  if (foundElement !== null && foundElement.className === 'output-task__list-item-block1-checkbox') {
+    // вызываем функцию для изменения checkbox и класса у элемента списка задач
+    changeCheckboxAndClassOfTaskListItem(clickedElement);
+    // получим текст выбранного пункта списка
+    const textOfTheSelectedItem = selectElem.value;
+    // вызываем функцию для получения отфильтрованных элементов в списке задач
+    getFilteredItems(textOfTheSelectedItem);
+    // если найденный элемент c классом (output-task__list-item-block2-remove) и не равен null
+  } else if (foundElement !== null && foundElement.className === 'output-task__list-item-block2-remove') {
+    // вызываем функцию для удаления элемента из списка задач
+    removeFromTheTaskList(clickedElement);
+  }
+  // вызываем функцию для вычисления активных и завершенных задач
+  calcActiveAndCompletedTasks();
 });
 
 // событие click возникает каждый раз когда кликнули на элемент <button> левой кнопкой мыши
@@ -117,38 +140,6 @@ buttonDeletingItemsWithCheckboxes.addEventListener('click', () => {
   deletingItemsWithCheckboxes();
   // вызываем функцию для вычисления активных и завершенных задач
   calcActiveAndCompletedTasks();
-});
-
-// после срабатывания события "click" по элементу checkbox, переданные внутрь функции выполняется
-document.addEventListener('click', (event) => {
-  // получим элемент по которому сделали клик
-  const clickedElement = event.target;
-  // метод contains объекта classList проверяет наличие CSS класса у элемента
-  // проверим есть ли у элемента по которому мы кликнули нужный нам класс
-  if (clickedElement.classList.contains('output-task__list-item-block1-checkbox')) {
-    // вызываем функцию для изменения checkbox и класса у элемента списка задач
-    changeCheckboxAndClassOfTaskListItem(clickedElement);
-    // вызываем функцию для вычисления активных и завершенных задач
-    calcActiveAndCompletedTasks();
-    // получим текст выбранного пункта списка
-    const textOfTheSelectedItem = selectElem.value;
-    // вызываем функцию для получения отфильтрованных элементов в списке задач
-    getFilteredItems(textOfTheSelectedItem);
-  }
-});
-
-// после срабатывания события "click" по элементу "Х", переданные внутрь функции выполняется
-document.addEventListener('click', (event) => {
-  // получим элемент по которому сделали клик
-  const clickedElement = event.target;
-  // метод contains объекта classList проверяет наличие CSS класса у элемента
-  // проверим есть ли у элемента по которому мы кликнули нужный нам класс
-  if (clickedElement.classList.contains('output-task__list-item-block2-remove')) {
-    // вызываем функцию для удаления элемента из списка задач
-    removeFromTheTaskList(clickedElement);
-    // вызываем функцию для вычисления активных и завершенных задач
-    calcActiveAndCompletedTasks();
-  }
 });
 
 // событие input возникает каждый раз при вводе нового символа в <input> поисковую строку

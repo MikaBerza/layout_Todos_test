@@ -180,8 +180,8 @@ export function removeClassFromElement(element, className) {
   element.classList.remove(className);
 }
 
-// функция поиск внучатого элемента с текстом задачи для созданной размети
-export function searchForGrandchildElementWithTaskText(domElement) {
+// функция поиск элемента внутри созданной разметки
+export function searchForElementInsideTheCreatedMarkup(domElement) {
   // имя класс элемент прародителя
   const progenitorElementClassName = 'output-task__list-item';
   // имя класс дочернего элемента block1
@@ -190,14 +190,26 @@ export function searchForGrandchildElementWithTaskText(domElement) {
   const childElementBlock2ClassName = 'output-task__list-item-block2';
   // имя класса внучатого элемента c текстом
   const grandchildElementClassNameWithText = 'output-task__list-item-block1-text';
+  // имя класса внучатого элемента c checkbox
+  const grandchildElementClassNameWithCheckbox = 'output-task__list-item-block1-checkbox';
   // имя класса внучатого элемента c датой
   const grandchildElementClassNameWithDate = 'output-task__list-item-block2-date';
+  // имя класса внучатого элемента c remove
+  const grandchildElementClassNameRemove = 'output-task__list-item-block2-remove';
   // найденный элемент
   let foundElement = null;
 
-  // если кликнули во нужному нам элементу с классом (output-task__list-item-block1-text)
+  // если кликнули по нужному нам элементу с классом (output-task__list-item-block1-text)
   if (domElement.className === grandchildElementClassNameWithText) {
-    // вызываем функцию для редактирования текста задачи
+    // присваиваем значение
+    foundElement = domElement;
+  // если кликнули по нужному нам элементу с классом (output-task__list-item-block1-checkbox)
+  } else if (domElement.className === grandchildElementClassNameWithCheckbox) {
+    // присваиваем значение
+    foundElement = domElement;
+    // если кликнули по нужному нам элементу с классом (output-task__list-item-block2-remove)
+  } else if (domElement.className === grandchildElementClassNameRemove) {
+    // присваиваем значение
     foundElement = domElement;
     // если кликнули по элементу прародителя с классом (output-task__list-item)
   } else if (domElement.className === progenitorElementClassName) {
@@ -205,13 +217,13 @@ export function searchForGrandchildElementWithTaskText(domElement) {
     const firstChildElem = domElement.firstElementChild;
     // получим первый внучатый элемент
     const firstGrandchildElem = firstChildElem.firstElementChild;
-    // вызываем функцию для редактирования текста задачи
+    // присваиваем значение
     foundElement = firstGrandchildElem;
     // если кликнули по элементу родителя с классом (output-task__list-item-block1)
   } else if (domElement.className === childElementBlock1ClassName) {
     // получим первый дочерний элемент
     const firstChildElem = domElement.firstElementChild;
-    // вызываем функцию для редактирования текста задачи
+    // присваиваем значение
     foundElement = firstChildElem;
     // если кликнули по элементу родителя с классом (output-task__list-item-block2)
   } else if (domElement.className === childElementBlock2ClassName) {
@@ -219,7 +231,7 @@ export function searchForGrandchildElementWithTaskText(domElement) {
     const previousElem = domElement.previousElementSibling;
     // получим первый дочерний элемент
     const firstChildElem = previousElem.firstElementChild;
-    // вызываем функцию для редактирования текста задачи
+    // присваиваем значение
     foundElement = firstChildElem;
     // если кликнули по внучатому жлементу с датой (output-task__list-item-block2-date)
   } else if (domElement.className === grandchildElementClassNameWithDate) {
@@ -229,7 +241,7 @@ export function searchForGrandchildElementWithTaskText(domElement) {
     const previousElem = parentElem.previousElementSibling;
     // получим первый дочерний элемент
     const firstChildElem = previousElem.firstElementChild;
-    // вызываем функцию для редактирования текста задачи
+    // присваиваем значение
     foundElement = firstChildElem;
   }
   return foundElement;
