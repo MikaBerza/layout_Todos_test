@@ -45,6 +45,8 @@ export function editTheTaskText(taskTextElement) {
 
           // изменяем название кнопки
           buttonElem.textContent = 'Редактировать';
+          // вызываем функцию чтобы добавить класс элементу
+          addClassToElement(buttonElem, 'edit-w2');
         }
         // заменяем элемент в массиве
         dataset[index] = newItem;

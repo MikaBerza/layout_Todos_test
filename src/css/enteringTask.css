@@ -44,6 +44,10 @@
     border 0.3s ease;
 }
 
+.edit-w2 {
+  width: 100% 
+}
+
 .entering-task__button-adding:hover,
 .entering-task__button-mark:hover,
 .entering-task__button-clearing:hover {

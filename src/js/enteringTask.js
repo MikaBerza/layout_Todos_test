@@ -123,6 +123,7 @@ export function returnAnOldTask() {
       removeClassFromElement(ulElem, 'dn');
       removeClassFromElement(buttonSetCheckboxes, 'dn');
       removeClassFromElement(buttonDeletingItemsWithCheckboxes, 'dn');
+      removeClassFromElement(buttonElem, 'edit-w2');
       // После редактирования записи, очищаем поле для ввода
       textareaElem.value = '';
     }
@@ -194,6 +195,7 @@ export function replaceTaskToTheListWhenEditing() {
         removeClassFromElement(ulElem, 'dn');
         removeClassFromElement(buttonSetCheckboxes, 'dn');
         removeClassFromElement(buttonDeletingItemsWithCheckboxes, 'dn');
+        removeClassFromElement(buttonElem, 'edit-w2');
         // После редактирования записи, очищаем поле для ввода
         textareaElem.value = '';
       }
