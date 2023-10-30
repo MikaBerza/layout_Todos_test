@@ -74,6 +74,7 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  transition: background-color 0.3s ease;
 }
 
 .filtering {
