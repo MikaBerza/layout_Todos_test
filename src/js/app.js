@@ -23,6 +23,8 @@ import {
   getFilteredItems,
 } from './control';
 
+// ___Считываем body
+const bodyElem = document.querySelector('body');
 // ___Считываем button для добавления задачи
 const buttonAddElem = document.querySelector('.entering-task__button-adding');
 // ___Считываем input для поиска задач
@@ -68,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // добавление или редактирование текста щелчком мыши и нажатием клавиши Enter
 buttonAddElem.addEventListener('click', handleAddOrEditTextOnClickAndKeydown);
-textareaElem.addEventListener('keydown', (event) => {
+bodyElem.addEventListener('keydown', (event) => {
   if (event.key === 'Enter' && textareaElem.value.trim().length !== 0) {
     handleAddOrEditTextOnClickAndKeydown();
     // отменяем действие по умолчанию для события keydown,
@@ -78,7 +80,7 @@ textareaElem.addEventListener('keydown', (event) => {
 });
 
 // выход из режима редактирования задачи нажатием клавиши Escape
-textareaElem.addEventListener('keydown', (event) => {
+bodyElem.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && buttonAddElem.textContent === 'Редактировать') {
     // вызываем функцию для возвращения старой задачи
     returnAnOldTask();
