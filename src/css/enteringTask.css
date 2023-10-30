@@ -45,13 +45,12 @@
 }
 
 .edit-w2 {
-  width: 100% 
+  width: 100%;
 }
 
 .entering-task__button-adding:hover,
 .entering-task__button-mark:hover,
 .entering-task__button-clearing:hover {
-  font-weight: 700;
   color: var(--white-color);
   background-color: var(--mapleGreen-color);
   border: 1px solid var(--mapleGreen-color);

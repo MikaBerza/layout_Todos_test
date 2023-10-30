@@ -57,6 +57,9 @@
 }
 
 @media (max-width: 767px) {
+  .entering-task__button-clearing {
+    width: 33%;
+  }
 
   .output-task__list-item-block1,
   .output-task__list-item-block2 {
