@@ -19,7 +19,8 @@
   cursor: pointer;
 }
 
-.output-task__list-item:not(:first-child) {
+.output-task__list-item:not(:first-child),
+.output-task__list-item-block2 {
   margin-top: 10px;
 }
 
@@ -28,10 +29,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  min-height: 32px;
 }
 
 .output-task__list-item-block1-text {
-  max-width: 96%;
+  display: block;
+  max-width: 93%;
   font-size: 16px;
   font-weight: 500;
   word-wrap: break-word;
@@ -39,16 +42,17 @@
 }
 
 .output-task__list-item-block1-checkbox[type=checkbox] {
-  margin: 0;
+  display: block;
+  width: 13px;
+  height: 20px;
   font-size: 18px;
   font-weight: 800;
   cursor: pointer;
 }
 
 .output-task__list-item-block2-date {
-  display: flex;
-  justify-content: left;
-  margin-top: 10px;
+  display: block;
+  max-width: 93%;
   font-size: 13px;
   font-weight: 600;
   color: var(--black-color);
@@ -56,13 +60,16 @@
 
 .output-task__list-item-block2-remove {
   display: none;
+  width: 13px;
+  height: 20px;
+  font-size: 18px;
+  font-weight: 900;
+  text-align: center;
 }
 
 .output-task__list-item:hover .output-task__list-item-block2-remove {
-  display: flex;
-  justify-content: right;
-  font-size: 18px;
-  font-weight: 900;
+  display: block;
   color: var(--tomato-color);
   cursor: pointer;
 }
+/* Исправить список дел: в мобильной версии символ (Х) показывается всегда  */

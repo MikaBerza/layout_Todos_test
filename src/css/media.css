@@ -55,3 +55,21 @@
     flex-direction: column;
   }
 }
+
+@media (max-width: 767px) {
+
+  .output-task__list-item-block1,
+  .output-task__list-item-block2 {
+    margin-left: 10px;
+  }
+
+  .output-task__list-item-block2-remove {
+    display: block;
+    padding: 6px 10px;
+    font-weight: 900;
+  }
+
+  .output-task__list-item-block1-checkbox[type=checkbox] {
+    margin: 5px 10px;
+  }
+}
