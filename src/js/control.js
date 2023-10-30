@@ -5,7 +5,7 @@ import {
 } from './modules';
 
 // функция поиска элементов в списке задач
-export function searchForItemsInTheList(searchStringText) {
+export const searchForItemsInTheList = (searchStringText) => {
   // проверим строку с данными из localStorage на null (отсутствие значения)
   if (checkLocalStorageForNull() !== null) {
     // запишем возвращенный объект с данными из localStorage в константу
@@ -24,10 +24,10 @@ export function searchForItemsInTheList(searchStringText) {
       }
     });
   }
-}
+};
 
 // функция вычисляет количество активных и завершенных задач
-export function calcActiveAndCompletedTasks() {
+export const calcActiveAndCompletedTasks = () => {
   // ___Считываем элемент <span> со значением все
   const tasksAll = document.querySelector('.counters__tasks-all');
   // ___Считываем элемент <span> со значением активен
@@ -76,10 +76,10 @@ export function calcActiveAndCompletedTasks() {
   }
   // вызываем функцию для обновления видимости кнопки удаления элементов
   updateTheVisibilityOfTheDeleteItemsButton(indicator.value);
-}
+};
 
 // ___функция для получения отфильтрованных элементов в списке задач
-export function getFilteredItems(textOfTheSelectedItem) {
+export const getFilteredItems = (textOfTheSelectedItem) => {
   // проверим строку с данными из localStorage на null (отсутствие значения)
   if (checkLocalStorageForNull() !== null) {
     // запишем возвращенный объект с данными из localStorage в константу
@@ -121,4 +121,4 @@ export function getFilteredItems(textOfTheSelectedItem) {
       });
     }
   }
-}
+};

@@ -6,7 +6,7 @@ import {
 } from './modules';
 
 // функция для редактирования текста задачи
-export function editTheTaskText(taskTextElement) {
+export const editTheTaskText = (taskTextElement) => {
   // проверим строку с данными из localStorage на null (отсутствие значения)
   if (checkLocalStorageForNull() !== null) {
     // ___Считываем <button> для добавления задачи
@@ -57,10 +57,10 @@ export function editTheTaskText(taskTextElement) {
       }
     });
   }
-}
+};
 
 // функция изменяет значение checkbox и класса у элемента списка задач
-export function changeCheckboxAndClassOfTaskListItem(checkboxElement) {
+export const changeCheckboxAndClassOfTaskListItem = (checkboxElement) => {
   // проверим строку с данными из localStorage на null (отсутствие значения)
   if (checkLocalStorageForNull() !== null) {
     // запишем возвращенный объект с данными из localStorage в константу
@@ -96,10 +96,10 @@ export function changeCheckboxAndClassOfTaskListItem(checkboxElement) {
       }
     });
   }
-}
+};
 
 // функция для удаления элемента из списка задач
-export function removeFromTheTaskList(crossElement) {
+export const removeFromTheTaskList = (crossElement) => {
   // проверим строку с данными из localStorage на null (отсутствие значения)
   if (checkLocalStorageForNull() !== null) {
     // запишем возвращенный объект с данными из localStorage в константу
@@ -125,4 +125,4 @@ export function removeFromTheTaskList(crossElement) {
       window.localStorage.setItem('keyDataset', strDataset);
     }
   }
-}
+};

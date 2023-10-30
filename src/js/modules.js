@@ -1,49 +1,47 @@
 // функция проверяет длину строки
-export function checkLengthOfTheString(str) {
+export const checkLengthOfTheString = (str) => {
   if (str.trim().length > 0) {
     return true;
   }
   return false;
-}
+};
 
 // функция проверяет данные из localStorage на null (отсутствие значения)
-export function checkLocalStorageForNull() {
+export const checkLocalStorageForNull = () => {
   // получим строку с данными из localStorage
   const dataFromLocalStorage = window.localStorage.getItem('keyDataset');
   if (dataFromLocalStorage === null) {
     return null;
   }
   return true;
-}
+};
 
 // функция записывает данные в localStorage
-export function writeToLocalStorage(dataset, objEnteredData) {
+export const writeToLocalStorage = (dataset, objEnteredData) => {
   // добавим объект с введенными данными в набор данных
   dataset.unshift(objEnteredData);
   // преобразует значение JS в строку JSON
   const strDataset = JSON.stringify(dataset);
   // добавляем набор данных в localStorage
   window.localStorage.setItem('keyDataset', strDataset);
-}
+};
 
 // функция возвращает объект с данными из localStorage
-export function returnAnObjectWithDataFromLocalStorage() {
+export const returnAnObjectWithDataFromLocalStorage = () => {
   // получим строку с данными из localStorage
   const dataFromLocalStorage = window.localStorage.getItem('keyDataset');
   // преобразуем строку JSON из localStorage в значение JS
   const dataset = JSON.parse(dataFromLocalStorage);
   return dataset;
-}
+};
 
 // функция для генерации id
-export function generateId() {
-  // 1.сгенерируем случайное число от 0 до 1
-  // 2.генерируемое число умножим на (100000000000000)
-  // 3.округлим полученное число по обычным правилам матем.
-  // 4.toString(16)--- в скобках укажем шестнадцатеричную систему счисления
-  // 5.число преобразуем в строку, представляющую число в шестнадцатеричной системе
-  return Math.round(Math.random() * 100000000000000).toString(16);
-}
+// 1.сгенерируем случайное число от 0 до 1
+// 2.генерируемое число умножим на (100000000000000)
+// 3.округлим полученное число по обычным правилам матем.
+// 4.toString(16)--- в скобках укажем шестнадцатеричную систему счисления
+// 5.число преобразуем в строку, представляющую число в шестнадцатеричной системе
+export const generateId = () => Math.round(Math.random() * 100000000000000).toString(16);
 
 /* Создадим такую разметку*
  <li class="output-task__list-item">
@@ -59,7 +57,7 @@ export function generateId() {
 */
 
 // функция создает элементы списка задач*
-export function createTaskListItems(date, remove, tick, note, id) {
+export const createTaskListItems = (date, remove, tick, note, id) => {
   // ___Считываем маркированный список <ul>
   const ulElem = document.querySelector('.output-task__list');
 
@@ -124,10 +122,10 @@ export function createTaskListItems(date, remove, tick, note, id) {
   liElem.appendChild(divElem2);
   // Во внутрь тега <ul> вставляем тег <li>
   ulElem.prepend(liElem);
-}
+};
 
 // функция выводит (отображает) данные из локального хранилища в виде списка задач
-export function displayLocalStorageData() {
+export const displayLocalStorageData = () => {
   // проверим строку с данными из localStorage на null (отсутствие значения)
   if (checkLocalStorageForNull() !== null) {
     // запишем возвращенный объект с данными из localStorage в константу
@@ -168,20 +166,20 @@ export function displayLocalStorageData() {
       });
     }
   }
-}
+};
 
 // функция добавляет класс элементу
-export function addClassToElement(element, className) {
+export const addClassToElement = (element, className) => {
   element.classList.add(className);
-}
+};
 
 // функция удаляет класс у элемента
-export function removeClassFromElement(element, className) {
+export const removeClassFromElement = (element, className) => {
   element.classList.remove(className);
-}
+};
 
 // функция поиск элемента внутри созданной разметки
-export function searchForElementInsideTheCreatedMarkup(domElement) {
+export const searchForElementInsideTheCreatedMarkup = (domElement) => {
   // имя класс элемент прародителя
   const progenitorElementClassName = 'output-task__list-item';
   // имя класс дочернего элемента block1
@@ -245,10 +243,10 @@ export function searchForElementInsideTheCreatedMarkup(domElement) {
     foundElement = firstChildElem;
   }
   return foundElement;
-}
+};
 
 // обновить видимость кнопки удаления элементов
-export function updateTheVisibilityOfTheDeleteItemsButton(indicator) {
+export const updateTheVisibilityOfTheDeleteItemsButton = (indicator) => {
   // ___Считываем button для удаления элементов с отмеченными флажками
   const buttonDeletingItemsWithCheckboxes = document.querySelector('.entering-task__button-clearing');
   if (indicator > 0) {
@@ -258,4 +256,4 @@ export function updateTheVisibilityOfTheDeleteItemsButton(indicator) {
     // вызываем функцию чтобы добавить класс элементу
     addClassToElement(buttonDeletingItemsWithCheckboxes, 'dn');
   }
-}
+};

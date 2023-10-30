@@ -41,7 +41,7 @@ const textareaElem = document.querySelector('.entering-task__textarea-item');
 const ulElem = document.querySelector('.output-task__list');
 
 // функция обрабатывать добавление или редактирование текста щелчком мыши и нажатием клавиши
-function handleAddOrEditTextOnClickAndKeydown() {
+const handleAddOrEditTextOnClickAndKeydown = () => {
   if (buttonAddElem.textContent === 'Добавить') {
     // вызываем функцию для добавления задачи в список задач
     addTaskToTheList();
@@ -57,7 +57,7 @@ function handleAddOrEditTextOnClickAndKeydown() {
     // вызываем функцию для вычисления активных и завершенных задач
     calcActiveAndCompletedTasks();
   }
-}
+};
 
 // После срабатывания события "DOMContentLoaded", переданные внутрь функции выполняется
 // Событие DOMContentLoaded происходит, когда браузер разобрал HTML-страницу и составил DOM-дерево

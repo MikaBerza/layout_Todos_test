@@ -10,7 +10,7 @@ import {
 } from './modules';
 
 // функция добавляет задачу в список задач
-export function addTaskToTheList() {
+export const addTaskToTheList = () => {
   // Создадим объект с датой в формате (дд/мм/гг, чч.мм)
   const recordingDate = new Date(Date.now()).toLocaleDateString('en-GB', {
     hour: '2-digit',
@@ -82,10 +82,10 @@ export function addTaskToTheList() {
     // После добавление записи, очищаем поле для ввода
     textareaElem.value = '';
   }
-}
+};
 
 // функция вернуть старую задачу
-export function returnAnOldTask() {
+export const returnAnOldTask = () => {
   // ___Считываем <button> для добавления задачи
   const buttonElem = document.querySelector('.entering-task__button-adding');
   // ___Считываем button для установки и снятия всех флажков
@@ -128,10 +128,10 @@ export function returnAnOldTask() {
       textareaElem.value = '';
     }
   });
-}
+};
 
 // функция заменить задачу в списке задач при редактировании
-export function replaceTaskToTheListWhenEditing() {
+export const replaceTaskToTheListWhenEditing = () => {
   // ___Считываем <button> для добавления задачи
   const buttonElem = document.querySelector('.entering-task__button-adding');
   // ___Считываем button для установки и снятия всех флажков
@@ -201,10 +201,10 @@ export function replaceTaskToTheListWhenEditing() {
       }
     });
   }
-}
+};
 
 // функция для установки всех флажков
-export function checkAllCheckboxes(dataset, nodeListCheckElem, nodeListTaskTextElem) {
+export const checkAllCheckboxes = (dataset, nodeListCheckElem, nodeListTaskTextElem) => {
   const newDataset = dataset;
   newDataset.forEach((item, index) => {
     // создаем новый объект на основе параметра
@@ -225,10 +225,10 @@ export function checkAllCheckboxes(dataset, nodeListCheckElem, nodeListTaskTextE
     // добавляем набор данных в localStorage
     window.localStorage.setItem('keyDataset', strDataset);
   });
-}
+};
 
 // функция для снятия всех флажков
-export function takeOfAllCheckboxes(dataset, nodeListCheckElem, nodeListTaskTextElem) {
+export const takeOfAllCheckboxes = (dataset, nodeListCheckElem, nodeListTaskTextElem) => {
   const newDataset = dataset;
   newDataset.forEach((item, index) => {
     // создаем новый объект на основе параметра
@@ -249,10 +249,10 @@ export function takeOfAllCheckboxes(dataset, nodeListCheckElem, nodeListTaskText
     // добавляем набор данных в localStorage
     window.localStorage.setItem('keyDataset', strDataset);
   });
-}
+};
 
 // функция для установки или снятия всех флажков
-export function checkAndTakeOfAllCheckboxes(nodeListCheckElem, nodeListTaskTextElem) {
+export const checkAndTakeOfAllCheckboxes = (nodeListCheckElem, nodeListTaskTextElem) => {
   // длина массива
   let arraylength = null;
   // счетчик checkbox с значением true
@@ -278,10 +278,10 @@ export function checkAndTakeOfAllCheckboxes(nodeListCheckElem, nodeListTaskTextE
       checkAllCheckboxes(dataset, nodeListCheckElem, nodeListTaskTextElem);
     }
   }
-}
+};
 
 // функция для удаления элементов с отмеченными флажками
-export function deletingItemsWithCheckboxes() {
+export const deletingItemsWithCheckboxes = () => {
   // проверим строку с данными из localStorage на null (отсутствие значения)
   if (checkLocalStorageForNull() !== null) {
     // запишем возвращенный объект с данными из localStorage в константу
@@ -311,4 +311,4 @@ export function deletingItemsWithCheckboxes() {
       window.localStorage.setItem('keyDataset', strDataset);
     }
   }
-}
+};
