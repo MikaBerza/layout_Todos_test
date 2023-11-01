@@ -19,15 +19,13 @@ export const checkLocalStorageForNull = () => {
 // функция записывает данные в localStorage
 export const writeToLocalStorage = (dataset, objEnteredData) => {
   dataset.unshift(objEnteredData);
-  const strDataset = JSON.stringify(dataset);
-  window.localStorage.setItem('keyDataset', strDataset);
+  window.localStorage.setItem('keyDataset', JSON.stringify(dataset));
 };
 
 // функция возвращает объект с данными из localStorage
 export const returnAnObjectWithDataFromLocalStorage = () => {
   const dataFromLocalStorage = window.localStorage.getItem('keyDataset');
-  const dataset = JSON.parse(dataFromLocalStorage);
-  return dataset;
+  return JSON.parse(dataFromLocalStorage);
 };
 
 // функция для генерации id
@@ -71,6 +69,7 @@ export const createTaskListItems = (date, remove, tick, note, id) => {
   spanElem3.classList.add('output-task__list-item-block2-remove');
 
   inputElem1.setAttribute('type', 'checkbox');
+
   if (tick === true) {
     inputElem1.setAttribute('checked', tick);
     spanElem1.classList.add('completed');
@@ -105,8 +104,8 @@ export const displayLocalStorageData = () => {
         const newItem = { ...item };
         newItem.editing = false;
         dataset[index] = newItem;
-        const strDataset = JSON.stringify(dataset);
-        window.localStorage.setItem('keyDataset', strDataset);
+
+        window.localStorage.setItem('keyDataset', JSON.stringify(dataset));
 
         createTaskListItems(
           item.date,
@@ -170,7 +169,6 @@ export const searchForElementInsideTheCreatedMarkup = (domElement) => {
 // обновить видимость кнопки удаления элементов
 export const updateTheVisibilityOfTheDeleteItemsButton = (indicator) => {
   const buttonDeletingItemsWithCheckboxes = document.querySelector('.entering-task__button-clearing');
-
   if (indicator > 0) {
     removeClassFromElement(buttonDeletingItemsWithCheckboxes, 'dn');
   } else if (indicator === 0) {

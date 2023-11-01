@@ -44,8 +44,8 @@ const handleAddOrEditTextOnClickAndKeydown = () => {
   }
 };
 
-// После срабатывания события "DOMContentLoaded", переданные внутрь функции выполняется
-// Событие DOMContentLoaded происходит, когда браузер разобрал HTML-страницу и составил DOM-дерево
+// после срабатывания события "DOMContentLoaded", переданные внутрь функции выполняется
+// событие DOMContentLoaded происходит, когда браузер разобрал HTML-страницу и составил DOM-дерево
 document.addEventListener('DOMContentLoaded', () => {
   displayLocalStorageData();
   calcActiveAndCompletedTasks();

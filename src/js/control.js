@@ -9,11 +9,10 @@ export const searchForItemsInTheList = (searchStringText) => {
   if (checkLocalStorageForNull() !== null) {
     const dataset = returnAnObjectWithDataFromLocalStorage();
 
-    dataset.forEach((item) => {
-      const idElem = item.id;
-      const elem = document.querySelector(`[data-id="${idElem}"]`);
+    dataset.forEach(({ note, id }) => {
+      const elem = document.querySelector(`[data-id="${id}"]`);
 
-      if (item.note.toUpperCase().indexOf(searchStringText) > -1) {
+      if (note.toUpperCase().indexOf(searchStringText) > -1) {
         elem.style.display = '';
       } else {
         elem.style.display = 'none';
@@ -38,14 +37,15 @@ export const calcActiveAndCompletedTasks = () => {
     let activeTaskCounter = 0;
     let completedTaskCounter = 0;
 
-    dataset.forEach((item) => {
-      if (item.tick === true) {
+    dataset.forEach(({ tick }) => {
+      if (tick === true) {
         completedTaskCounter += 1;
-      } else if (item.tick === false) {
+      } else if (tick === false) {
         activeTaskCounter += 1;
       }
       allTaskCounter = completedTaskCounter + activeTaskCounter;
     });
+
     tasksAll.textContent = `всего-${allTaskCounter}`;
     tasksActive.textContent = `активно-${activeTaskCounter}`;
     tasksCompleted.textContent = `завершено-${completedTaskCounter}`;
@@ -69,28 +69,25 @@ export const getFilteredItems = (textOfTheSelectedItem) => {
     const dataset = returnAnObjectWithDataFromLocalStorage();
 
     if (textOfTheSelectedItem === 'все') {
-      dataset.forEach((item) => {
-        const idElem = item.id;
-        const elem = document.querySelector(`[data-id="${idElem}"]`);
+      dataset.forEach(({ id }) => {
+        const elem = document.querySelector(`[data-id="${id}"]`);
         elem.style.display = '';
       });
     } else if (textOfTheSelectedItem === 'активные') {
-      dataset.forEach((item) => {
-        const idElem = item.id;
-        const elem = document.querySelector(`[data-id="${idElem}"]`);
-        if (item.tick === true) {
+      dataset.forEach(({ tick, id }) => {
+        const elem = document.querySelector(`[data-id="${id}"]`);
+        if (tick === true) {
           elem.style.display = 'none';
-        } else if (item.tick === false) {
+        } else if (tick === false) {
           elem.style.display = '';
         }
       });
     } else if (textOfTheSelectedItem === 'завершенные') {
-      dataset.forEach((item) => {
-        const idElem = item.id;
-        const elem = document.querySelector(`[data-id="${idElem}"]`);
-        if (item.tick === false) {
+      dataset.forEach(({ tick, id }) => {
+        const elem = document.querySelector(`[data-id="${id}"]`);
+        if (tick === false) {
           elem.style.display = 'none';
-        } else if (item.tick === true) {
+        } else if (tick === true) {
           elem.style.display = '';
         }
       });

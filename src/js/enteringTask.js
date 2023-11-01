@@ -85,8 +85,7 @@ export const returnAnOldTask = () => {
       const newItem = { ...item };
       newItem.editing = false;
       dataset[index] = newItem;
-      const strDataset = JSON.stringify(dataset);
-      window.localStorage.setItem('keyDataset', strDataset);
+      window.localStorage.setItem('keyDataset', JSON.stringify(dataset));
 
       const idElem = item.id;
       const liElem = document.querySelector(`[data-id="${idElem}"]`);
@@ -131,8 +130,7 @@ export const replaceTaskToTheListWhenEditing = () => {
         newItem.editing = false;
 
         dataset[index] = newItem;
-        const strDataset = JSON.stringify(dataset);
-        window.localStorage.setItem('keyDataset', strDataset);
+        window.localStorage.setItem('keyDataset', JSON.stringify(dataset));
 
         const idElem = item.id;
         const liElem = document.querySelector(`[data-id="${idElem}"]`);
@@ -165,8 +163,7 @@ export const checkAllCheckboxes = (dataset, nodeListCheckElem, nodeListTaskTextE
     addClassToElement(nodeListTaskTextElem[index], 'completed');
 
     newDataset[index] = newItem;
-    const strDataset = JSON.stringify(newDataset);
-    window.localStorage.setItem('keyDataset', strDataset);
+    window.localStorage.setItem('keyDataset', JSON.stringify(newDataset));
   });
 };
 
@@ -182,8 +179,7 @@ export const takeOfAllCheckboxes = (dataset, nodeListCheckElem, nodeListTaskText
     removeClassFromElement(nodeListTaskTextElem[index], 'completed');
 
     newDataset[index] = newItem;
-    const strDataset = JSON.stringify(newDataset);
-    window.localStorage.setItem('keyDataset', strDataset);
+    window.localStorage.setItem('keyDataset', JSON.stringify(newDataset));
   });
 };
 
@@ -196,11 +192,12 @@ export const checkAndTakeOfAllCheckboxes = (nodeListCheckElem, nodeListTaskTextE
     const dataset = returnAnObjectWithDataFromLocalStorage();
     arraylength = dataset.length;
 
-    dataset.forEach((item) => {
-      if (item.tick === true) {
+    dataset.forEach(({ tick }) => {
+      if (tick === true) {
         checkboxCounterTrue += 1;
       }
     });
+
     if (checkboxCounterTrue === arraylength) {
       takeOfAllCheckboxes(dataset, nodeListCheckElem, nodeListTaskTextElem);
     } else {
@@ -220,8 +217,8 @@ export const deletingItemsWithCheckboxes = () => {
         dataset.splice(i, 1);
         nodeListElemLi[i].remove();
       }
-      const strDataset = JSON.stringify(dataset);
-      window.localStorage.setItem('keyDataset', strDataset);
+
+      window.localStorage.setItem('keyDataset', JSON.stringify(dataset));
     }
   }
 };

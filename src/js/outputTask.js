@@ -32,8 +32,7 @@ export const editTheTaskText = (taskTextElement) => {
           addClassToElement(buttonElem, 'edit-w2');
         }
         dataset[index] = newItem;
-        const strDataset = JSON.stringify(dataset);
-        window.localStorage.setItem('keyDataset', strDataset);
+        window.localStorage.setItem('keyDataset', JSON.stringify(dataset));
       }
     });
   }
@@ -58,8 +57,7 @@ export const changeCheckboxAndClassOfTaskListItem = (checkboxElement) => {
           removeClassFromElement(taskTextElem, 'completed');
         }
         dataset[index] = newItem;
-        const strDataset = JSON.stringify(dataset);
-        window.localStorage.setItem('keyDataset', strDataset);
+        window.localStorage.setItem('keyDataset', JSON.stringify(dataset));
       }
     });
   }
@@ -71,13 +69,12 @@ export const removeFromTheTaskList = (crossElement) => {
     const dataset = returnAnObjectWithDataFromLocalStorage();
     const liElem = crossElement.parentNode.parentNode;
     const idElem = liElem.getAttribute('data-id');
-    const elementIndex = dataset.findIndex((item) => item.id === idElem);
+    const elementIndex = dataset.findIndex(({ id }) => id === idElem);
 
     if (elementIndex !== -1) {
       dataset.splice(elementIndex, 1);
       liElem.remove();
-      const strDataset = JSON.stringify(dataset);
-      window.localStorage.setItem('keyDataset', strDataset);
+      window.localStorage.setItem('keyDataset', JSON.stringify(dataset));
     }
   }
 };
