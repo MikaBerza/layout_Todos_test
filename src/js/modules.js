@@ -8,8 +8,8 @@ export const checkLengthOfTheString = (str) => {
 
 // функция проверяет данные из localStorage на null (отсутствие значения)
 export const checkLocalStorageForNull = () => {
-  // получим строку с данными из localStorage
   const dataFromLocalStorage = window.localStorage.getItem('keyDataset');
+
   if (dataFromLocalStorage === null) {
     return null;
   }
@@ -18,29 +18,19 @@ export const checkLocalStorageForNull = () => {
 
 // функция записывает данные в localStorage
 export const writeToLocalStorage = (dataset, objEnteredData) => {
-  // добавим объект с введенными данными в набор данных
   dataset.unshift(objEnteredData);
-  // преобразует значение JS в строку JSON
   const strDataset = JSON.stringify(dataset);
-  // добавляем набор данных в localStorage
   window.localStorage.setItem('keyDataset', strDataset);
 };
 
 // функция возвращает объект с данными из localStorage
 export const returnAnObjectWithDataFromLocalStorage = () => {
-  // получим строку с данными из localStorage
   const dataFromLocalStorage = window.localStorage.getItem('keyDataset');
-  // преобразуем строку JSON из localStorage в значение JS
   const dataset = JSON.parse(dataFromLocalStorage);
   return dataset;
 };
 
 // функция для генерации id
-// 1.сгенерируем случайное число от 0 до 1
-// 2.генерируемое число умножим на (100000000000000)
-// 3.округлим полученное число по обычным правилам матем.
-// 4.toString(16)--- в скобках укажем шестнадцатеричную систему счисления
-// 5.число преобразуем в строку, представляющую число в шестнадцатеричной системе
 export const generateId = () => Math.round(Math.random() * 100000000000000).toString(16);
 
 /* Создадим такую разметку*
@@ -58,104 +48,66 @@ export const generateId = () => Math.round(Math.random() * 100000000000000).toSt
 
 // функция создает элементы списка задач*
 export const createTaskListItems = (date, remove, tick, note, id) => {
-  // ___Считываем маркированный список <ul>
   const ulElem = document.querySelector('.output-task__list');
-
-  // Метод createElement создает новый элемент,передав в параметре имя тега
-  // создаем элемент <li>
   const liElem = document.createElement('li');
-  // для элемента <li> назначаем класс "output-task__list-item",
-  // метод add объекта classList добавляет CSS класс элементу
+
   liElem.classList.add('output-task__list-item');
-  // создаем элементы для блока 1
+
   const divElem1 = document.createElement('div');
   const spanElem1 = document.createElement('span');
   const inputElem1 = document.createElement('input');
-  // создаем элементы для блока 2
   const divElem2 = document.createElement('div');
   const spanElem2 = document.createElement('span');
   const spanElem3 = document.createElement('span');
 
-  // Создаёт новый текстовый узел с заданным текстом:
   const dateElem1 = document.createTextNode(date);
   const crossElem2 = document.createTextNode(remove);
 
-  // для элементов назначаем классы
   divElem1.classList.add('output-task__list-item-block1');
   spanElem1.classList.add('output-task__list-item-block1-text');
   inputElem1.classList.add('output-task__list-item-block1-checkbox');
-  //
   divElem2.classList.add('output-task__list-item-block2');
   spanElem2.classList.add('output-task__list-item-block2-date');
   spanElem3.classList.add('output-task__list-item-block2-remove');
 
-  // добавляем атрибут для тега <input>
   inputElem1.setAttribute('type', 'checkbox');
-  // запишем условие
   if (tick === true) {
-    // добавляем атрибут для тега <input> установленный флажок
     inputElem1.setAttribute('checked', tick);
-    // добавим класс элементу spanElem1 что задача выполнена
     spanElem1.classList.add('completed');
   }
 
-  // Во внутрь тега <div> вставляем заданный текст
-  // Метод appendChild позволяет вставить в конец какого-либо другой элемент
   divElem1.appendChild(spanElem1);
   divElem1.appendChild(inputElem1);
-
   divElem2.appendChild(spanElem2);
   divElem2.appendChild(spanElem3);
-
-  // Во внутрь тега <span> вставляем заданный текст
   spanElem2.appendChild(dateElem1);
   spanElem3.appendChild(crossElem2);
 
-  // Эта запись будет добавляться
   spanElem1.textContent = note;
 
-  // добавляем атрибут data-id для тега <li>
   liElem.setAttribute('data-id', id);
-
-  // Во внутрь тега <li> вставляем тег <span>
   liElem.appendChild(divElem1);
   liElem.appendChild(divElem2);
-  // Во внутрь тега <ul> вставляем тег <li>
+
   ulElem.prepend(liElem);
 };
 
 // функция выводит (отображает) данные из локального хранилища в виде списка задач
 export const displayLocalStorageData = () => {
-  // проверим строку с данными из localStorage на null (отсутствие значения)
   if (checkLocalStorageForNull() !== null) {
-    // запишем возвращенный объект с данными из localStorage в константу
     const dataset = returnAnObjectWithDataFromLocalStorage();
-    // получим HTMLCollection элементов <li> списка <ul>
     const liCollection = document.getElementsByClassName(
       'output-task__list-item',
     );
-    /* Если во время редактирования страницы, перезагрузить страницу,
-       то поле (editing:true) так и останется в таком состоянии и в дальнейшем
-       эту запись уже нельзя будет перевести в другое состояние.
-       Для исправления этой ошибки, изменим все поля на (editing:false) */
 
-    /* проверим уже выведенный список задач на страницы с записями
-       из localStorage, данная проверка нужна, чтобы избежать повторного
-       вывода задач при перезагрузки страницы */
     if (dataset.length !== liCollection.length) {
       dataset.forEach((item, index) => {
-        // создаем новый объект на основе параметра
         const newItem = { ...item };
-        // присваиваем новое значение
         newItem.editing = false;
-        // заменяем элемент в массиве
         dataset[index] = newItem;
-        // преобразует значение JS в строку JSON
         const strDataset = JSON.stringify(dataset);
-        // добавляем набор данных в localStorage
         window.localStorage.setItem('keyDataset', strDataset);
 
-        // вызываем функцию для создания элементов списка задач
         createTaskListItems(
           item.date,
           item.remove,
@@ -180,66 +132,36 @@ export const removeClassFromElement = (element, className) => {
 
 // функция поиск элемента внутри созданной разметки
 export const searchForElementInsideTheCreatedMarkup = (domElement) => {
-  // имя класс элемент прародителя
   const progenitorElementClassName = 'output-task__list-item';
-  // имя класс дочернего элемента block1
   const childElementBlock1ClassName = 'output-task__list-item-block1';
-  // имя класс дочернего элемента block2
   const childElementBlock2ClassName = 'output-task__list-item-block2';
-  // имя класса внучатого элемента c текстом
   const grandchildElementClassNameWithText = 'output-task__list-item-block1-text';
-  // имя класса внучатого элемента c checkbox
   const grandchildElementClassNameWithCheckbox = 'output-task__list-item-block1-checkbox';
-  // имя класса внучатого элемента c датой
   const grandchildElementClassNameWithDate = 'output-task__list-item-block2-date';
-  // имя класса внучатого элемента c remove
   const grandchildElementClassNameRemove = 'output-task__list-item-block2-remove';
-  // найденный элемент
   let foundElement = null;
 
-  // если кликнули по нужному нам элементу с классом (output-task__list-item-block1-text)
   if (domElement.className === grandchildElementClassNameWithText) {
-    // присваиваем значение
     foundElement = domElement;
-  // если кликнули по нужному нам элементу с классом (output-task__list-item-block1-checkbox)
   } else if (domElement.className === grandchildElementClassNameWithCheckbox) {
-    // присваиваем значение
     foundElement = domElement;
-    // если кликнули по нужному нам элементу с классом (output-task__list-item-block2-remove)
   } else if (domElement.className === grandchildElementClassNameRemove) {
-    // присваиваем значение
     foundElement = domElement;
-    // если кликнули по элементу прародителя с классом (output-task__list-item)
   } else if (domElement.className === progenitorElementClassName) {
-    // получим первый дочерний элемент
     const firstChildElem = domElement.firstElementChild;
-    // получим первый внучатый элемент
     const firstGrandchildElem = firstChildElem.firstElementChild;
-    // присваиваем значение
     foundElement = firstGrandchildElem;
-    // если кликнули по элементу родителя с классом (output-task__list-item-block1)
   } else if (domElement.className === childElementBlock1ClassName) {
-    // получим первый дочерний элемент
     const firstChildElem = domElement.firstElementChild;
-    // присваиваем значение
     foundElement = firstChildElem;
-    // если кликнули по элементу родителя с классом (output-task__list-item-block2)
   } else if (domElement.className === childElementBlock2ClassName) {
-    // получим предыдущий элемент
     const previousElem = domElement.previousElementSibling;
-    // получим первый дочерний элемент
     const firstChildElem = previousElem.firstElementChild;
-    // присваиваем значение
     foundElement = firstChildElem;
-    // если кликнули по внучатому жлементу с датой (output-task__list-item-block2-date)
   } else if (domElement.className === grandchildElementClassNameWithDate) {
-    // получим родительский элемент
     const parentElem = domElement.parentElement;
-    // получим предыдущий элемент
     const previousElem = parentElem.previousElementSibling;
-    // получим первый дочерний элемент
     const firstChildElem = previousElem.firstElementChild;
-    // присваиваем значение
     foundElement = firstChildElem;
   }
   return foundElement;
@@ -247,13 +169,11 @@ export const searchForElementInsideTheCreatedMarkup = (domElement) => {
 
 // обновить видимость кнопки удаления элементов
 export const updateTheVisibilityOfTheDeleteItemsButton = (indicator) => {
-  // ___Считываем button для удаления элементов с отмеченными флажками
   const buttonDeletingItemsWithCheckboxes = document.querySelector('.entering-task__button-clearing');
+
   if (indicator > 0) {
-    // вызываем функцию чтобы удалить класс у элемента
     removeClassFromElement(buttonDeletingItemsWithCheckboxes, 'dn');
   } else if (indicator === 0) {
-    // вызываем функцию чтобы добавить класс элементу
     addClassToElement(buttonDeletingItemsWithCheckboxes, 'dn');
   }
 };
